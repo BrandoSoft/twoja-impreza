@@ -1,0 +1,25 @@
+{
+  "name": "twoja-impreza",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandoSoft/twoja-impreza.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandoSoft/twoja-impreza/issues"
+  },
+  "homepage": "https://github.com/BrandoSoft/twoja-impreza#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "nodemon": "^2.0.14"
+  }
+}
