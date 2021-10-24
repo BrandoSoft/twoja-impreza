@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('express-handlebars');
 
 const {handlebarsHelpers} = require('./handlebars-helpers');
+const {homeRouter} = require("./routs/home");
 
 
 
@@ -15,6 +16,8 @@ app.engine('.hbs', hbs({
 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', '.hbs')
+
+app.use('/', homeRouter)
 
 
 
