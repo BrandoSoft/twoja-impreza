@@ -8,6 +8,7 @@ const {homeRouter} = require("./routs/home");
 
 
 const app = express();
+const PORT = 3005;
 
 app.engine('.hbs', hbs({
     extname: 'hbs',
@@ -21,4 +22,4 @@ app.use('/', homeRouter)
 
 
 
-app.listen(3003, 'localhost')
+app.listen(PORT, 'localhost')
