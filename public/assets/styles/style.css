@@ -47,7 +47,7 @@
 
 .navigation li a {
     display: block;
-    font-family: "Gill Sans MT Condensed";
+    font-family: "Gill Sans MT Condensed", Arial, "Helvetica Neue", Helvetica, sans-serif;;
     letter-spacing: 3px;
     padding: 10px 20px;
     font-size: 38px;
@@ -83,7 +83,7 @@
 
 .header-bar--title {
     display: block;
-    font-family: "Gill Sans MT Condensed";
+    font-family: "Gill Sans MT Condensed", Arial, "Helvetica Neue", Helvetica, sans-serif;;
     letter-spacing: 3px;
     font-size: 45px;
     text-decoration: none;
@@ -95,6 +95,19 @@
     height: 150%;
 }
 
-aside {
-    min-height: 1500px;
+.main-section {
+    display: flex;
+    min-height: 3500px;
+    width: 100%;
+    background-image: url("/assets/images/main-background.jpg");
+    background-size: auto;
+    background-repeat: repeat;
+}
+
+.menu-left {
+    min-height: 1200px;
+    width: 23%;
+    background-color: #fff;
+    margin: 100px 10px 100px 30px;
+    border-radius: 5px;
 }
