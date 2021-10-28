@@ -6,7 +6,7 @@ const homeRouter = express.Router();
 
 homeRouter
     .get('/', (req, res) =>{
-        res.render( 'home/index', {
+        res.render( 'home/home', {
             info:PARTY_INFO,
         })
     });
