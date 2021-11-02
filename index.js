@@ -49,5 +49,5 @@ index.post('/add-party-to-db', (req, res) =>{
 })
 
 index.listen(port, () => {
-    console.log(`Working on http://localhost:${port}`)
+    console.log(`Working on  http://localhost:${port}`)
 })
