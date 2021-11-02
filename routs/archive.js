@@ -4,7 +4,7 @@ const archiveRouter = express.Router();
 
 archiveRouter
     .get('/archiwum-imprez', (req, res) => {
-        res.render('archive/archive', {
+        res.render('sites/archive/archive', {
         })
     });
 

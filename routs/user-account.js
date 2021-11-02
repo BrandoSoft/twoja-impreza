@@ -4,7 +4,7 @@ const userAccountRouter = express.Router();
 
 userAccountRouter
     .get('/panel-uzytkownika', (req, res) => {
-        res.render('user-account/user-account', {
+        res.render('sites/user-account/user-account', {
         })
     });
 
