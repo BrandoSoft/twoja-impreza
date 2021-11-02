@@ -1,14 +1,34 @@
 <script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.min.js"></script>
 <div id="color-calendar"></div>
+
+{{#each events}}
+
+        {{this.[1]}}
+
+{{/each}}
+
+
+
 <script>
-    const cal = new Calendar(
+
+    new Calendar(
     {
         id: '#color-calendar',
-        eventsData: events,
+        eventsData:  myEvents =[
+        {{#each events}}
+            {
+                start: '{{this.start}}',
+                end: '{{this.end}}',
+                name: '{{this.name}}',
+                url: '{{this.url}}',
+                desc: '{{this.desc}}',
+            },
+
+    {{/each}}],
         headerColor: "rgba(229, 67, 37, 1)",
         primaryColor: "rgba(229, 67, 37, 1)",
         weekdaysColor: "black",
         dateChanged: (Date, EventData) => { console.log(Date, EventData); },
     })
-    console.log(cal.eventsData);
+
 </script>
