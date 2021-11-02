@@ -1,7 +1,7 @@
 const mongoose = require ('mongoose');
 
 const partyListSchema = new mongoose.Schema({
-    title:{
+    name:{
         type: String,
         required: true,
     },
@@ -13,14 +13,18 @@ const partyListSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    start:{
-        type: Date,
+    time:{
+        type: String,
         required: true,
     },
-    end:{
-        type: Date,
+    place:{
+        type: String,
         required: true,
-    }
+    },
+    organizer:{
+        type: String,
+        required: true,
+    },
 
 });
 
