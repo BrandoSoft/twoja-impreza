@@ -1,7 +1,6 @@
 const express = require('express');
 const hbs = require('express-handlebars');
 const mongoose = require('mongoose');
-require('dotenv').config();
 
 const {handlebarsHelpers} = require('./handlebars-helpers');
 const {homeRouter} = require("./routs/home");
@@ -9,14 +8,8 @@ const {addRouter} = require("./routs/add");
 const {archiveRouter} = require("./routs/archive");
 const {userPartyRouter} = require("./routs/user-party");
 const {userAccountRouter} = require("./routs/user-account");
-
-
+const { port, database_name, database_pass } = require("./config");
 const app = express();
-const port = process.env.PORT;
-const host = process.env.HOST;
-
-const login = process.env.DBNAME;
-const pass = process.env.DBPASS;
 
 // Routing
 
@@ -38,12 +31,13 @@ app.use(express.static(__dirname + '/public'));
 
 // Database url
 
-const url = `mongodb+srv://${login}:${pass}@cluster0.xll9q.mongodb.net/twojaImprezaDatabase?retryWrites=true&w=majority`;
+const url = `mongodb+srv://${database_name}:${database_pass}@cluster0.xll9q.mongodb.net/twojaImprezaDatabase?retryWrites=true&w=majority`;
 
 mongoose.connect(url,{
         useNewUrlParser: true,
         useUnifiedTopology: true,
-    })
+    }
+    )
     .then(console.log("Mongo DB connectes"))
     .catch(err => console.log(err));
 
@@ -65,6 +59,6 @@ app.post('/add-party-to-db', (req, res) =>{
         .catch(err=> console.log(err));
 })
 
-app.listen(port, host, () => {
-    console.log(`Working on ${host}:${port}`)
+app.listen(port, () => {
+    console.log(`Working on http://localhost:${port}`)
 })
