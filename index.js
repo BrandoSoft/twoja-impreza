@@ -11,17 +11,17 @@ const { userAccountRouter, } = require("./routs/user-account");
 const { port, database_name, database_pass } = require("./config");
 
 // Routing
-const app = express();
-app.use(express.static('./public'));
-app.use('/', homeRouter);
-app.use('/', addRouter);
-app.use('/', archiveRouter);
-app.use('/', userPartyRouter);
-app.use('/', userAccountRouter);
+const index = express();
+index.use(express.static('./public'));
+index.use('/', homeRouter);
+index.use('/', addRouter);
+index.use('/', archiveRouter);
+index.use('/', userPartyRouter);
+index.use('/', userAccountRouter);
 
 // handlebars config
-app.engine('.hbs', hbs({ extname: 'hbs', helpers: handlebarsHelpers }));
-app.set('view engine', '.hbs');
+index.engine('.hbs', hbs({ extname: 'hbs', helpers: handlebarsHelpers }));
+index.set('view engine', '.hbs');
 
 // Database url
 const url = `mongodb+srv://${database_name}:${database_pass}@cluster0.xll9q.mongodb.net/twojaImprezaDatabase?retryWrites=true&w=majority`;
@@ -38,7 +38,7 @@ mongoose.connect(url,{
 const PartyList = require('./models/PartyList')
 
 // route for saving diary
-app.post('/add-party-to-db', (req, res) =>{
+index.post('/add-party-to-db', (req, res) =>{
     const Data = new PartyList({
         title: req.body.title,
         description: req.body.description,
@@ -48,6 +48,6 @@ app.post('/add-party-to-db', (req, res) =>{
     res.send("ZAPIS");
 })
 
-app.listen(port, () => {
+index.listen(port, () => {
     console.log(`Working on http://localhost:${port}`)
 })
