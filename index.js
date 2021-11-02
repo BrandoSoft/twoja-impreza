@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const bodyParser = require('body-parser');
 
 const { handlebarsHelpers, } = require('./handlebars-helpers');
 const { homeRouter, } = require("./routs/home");
@@ -17,17 +18,17 @@ const login = process.env.DBNAME;
 const pass = process.env.DBPASS;
 
 // Routing
-const index = express();
-index.use(express.static('./public'));
-index.use('/', homeRouter);
-index.use('/', addRouter);
-index.use('/', archiveRouter);
-index.use('/', userPartyRouter);
-index.use('/', userAccountRouter);
+const app = express();
+app.use(express.static('./public'));
+app.use('/', homeRouter);
+app.use('/', addRouter);
+app.use('/', archiveRouter);
+app.use('/', userPartyRouter);
+app.use('/', userAccountRouter);
 
 // handlebars config
-index.engine('.hbs', hbs({ extname: 'hbs', helpers: handlebarsHelpers }));
-index.set('view engine', '.hbs');
+app.engine('.hbs', hbs({ extname: 'hbs', helpers: handlebarsHelpers }));
+app.set('view engine', '.hbs');
 
 // Database url
 const url = `mongodb+srv://${login}:${pass}@cluster0.xll9q.mongodb.net/twojaImprezaDatabase?retryWrites=true&w=majority`;
@@ -43,18 +44,30 @@ mongoose.connect(url,{
 // Import party model
 const PartyList = require('./models/PartyList')
 
+// Body-Parser Middleware
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
 // route for saving diary
-index.post('/add-party-to-db', (req, res) =>{
+app.post('/add-party-to-db', (req, res) =>{
+    // res.send(req.body)
+
+    const {title, description, date} = req.body;
+    console.log(req.body)
     const Data = new PartyList({
-        title: req.body.title,
-        description: req.body.description,
-        date: req.body.date,
+        title,
+        description,
+        date,
     })
     console.log(Data);
-    res.send("ZAPIS");
+    res.send("ZAPISAno");
 })
 
 
-index.listen(3000, () => {
+app.listen(3000, () => {
     console.log(`Working on http://localhost:${port}`)
 })

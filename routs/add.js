@@ -6,7 +6,8 @@ addRouter
     .get('/dodaj-ogloszenie', (req, res) => {
         res.render('sites/add/add', {
         })
-    });
+    })
+
 
 module.exports = {
     addRouter,

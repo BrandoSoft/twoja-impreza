@@ -15,4 +15,4 @@ const partyListSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Diary', partyListSchema);
+module.exports = mongoose.model('PARTY', partyListSchema);
