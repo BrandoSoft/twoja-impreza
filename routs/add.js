@@ -4,7 +4,7 @@ const addRouter = express.Router();
 
 addRouter
     .get('/dodaj-ogloszenie', (req, res) => {
-        res.render('add/add', {
+        res.render('sites/add/add', {
         })
     });
 
