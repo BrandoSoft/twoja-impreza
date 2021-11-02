@@ -56,12 +56,12 @@ app.use(bodyParser.json())
 app.post('/add-party-to-db', (req, res) =>{
     // res.send(req.body)
 
-    const {title, description, date} = req.body;
+    // const {title, description, date} = req.body;
     console.log(req.body)
     const Data = new PartyList({
-        title,
-        description,
-        date,
+        title: req.body.title,
+        description: req.body.description,
+        date: req.body.date,
     })
     console.log(Data);
     res.send("ZAPISAno");

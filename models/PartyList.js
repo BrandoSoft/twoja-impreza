@@ -12,7 +12,16 @@ const partyListSchema = new mongoose.Schema({
     date:{
         type: Date,
         required: true,
+    },
+    start:{
+        type: Date,
+        required: true,
+    },
+    end:{
+        type: Date,
+        required: true,
     }
+
 });
 
-module.exports = mongoose.model('PARTY', partyListSchema);
+module.exports = mongoose.model('Party', partyListSchema);
