@@ -7,7 +7,7 @@ userRouter
         res.render('sites/user-account/user-account', {
         })
     })
-    .get('/party', (req, res) => {
+    .get('/events', (req, res) => {
         res.render('sites/user-party/user-party', {
         })
     });

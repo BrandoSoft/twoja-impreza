@@ -3,7 +3,7 @@ const express = require('express');
 const archiveRouter = express.Router();
 
 archiveRouter
-    .get('/party', (req, res) => {
+    .get('/events', (req, res) => {
         res.render('sites/archive/archive', {
         })
     })

@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 
 const {handlebarsHelpers,} = require('./utils/handlebars-helpers');
 const {homeRouter,} = require("./routs/home");
-const {eventsRouter,} = require("./routs/add");
+const {eventsRouter,} = require("./routs/events");
 const {archiveRouter,} = require("./routs/archive");
-const {userRouter,} = require("./routs/user-account");
+const {userRouter,} = require("./routs/user");
 const {port} = require('./config')
 
 const app = express();
@@ -23,7 +23,6 @@ app.use('/events', eventsRouter);
 app.use('/archive', archiveRouter);
 app.use('/user', userRouter);
 app.use('/', homeRouter);
-
 
 app.listen(port, () => {
     console.log(`Working on http://localhost:${port}`)
