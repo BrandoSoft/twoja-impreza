@@ -41,18 +41,14 @@ addRouter
     const Data = new PartyList({
         name, description, date, time, place, organizer,
     })
+       console.log(req.body)
 
     Data.save().then(()=>{
-        // res.redirect('/added', req.body)
-        res.redirect(urlq.format({
-            pathname:"/added",
-            query: {
-                "a": 1,
-                "b": 2,
-                "valid":"your string here"
-            }
-        }));
-    });
+        res.render('sites/add/added', {
+            name, description, date, time, place, organizer
+        })
+
+   });
 
 })
 
