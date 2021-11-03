@@ -43,8 +43,7 @@ addRouter
     Data.save()
        .then(()=>{
         res.render('sites/add/added', body)
-
-   });
+   }).catch(error => console.log(error));
 
 })
 
