@@ -2,13 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const { database_pass, database_name } = require('../config')
+const {database_pass, database_name} = require('../config')
 
 
 const PartyList = require("../models/PartyList");
 
 const jsonParser = bodyParser.json()
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
+const urlencodedParser = bodyParser.urlencoded({extended: false})
 
 const eventsRouter = express.Router();
 
@@ -33,27 +33,28 @@ eventsRouter
         res.render('sites/add/added', {})
     })
 
-   .post('/add-party-to-db', urlencodedParser, (req, res) => {
+    .post('/add-party-to-db', urlencodedParser, (req, res) => {
 
-       const body =req.body;
-
-
-       const Data = new PartyList(body)
-
-   .post('/add-to-db', urlencodedParser, (req, res) => {
-    const body = req.body;
-    const Data = new PartyList(body)
+        const body = req.body;
 
 
-    Data.save()
-       .then(()=>{
-        res.render('sites/add/added', body)
+        const Data = new PartyList(body)
 
-   }).catch(error => console.log(error));
+            .post('/add-to-db', urlencodedParser, (req, res) => {
+                const body = req.body;
+                const Data = new PartyList(body)
 
 
-})
+                Data.save()
+                    .then(() => {
+                        res.render('sites/add/added', body)
+
+                    }).catch(error => console.log(error));
+
+
+            })
+    })
 
 module.exports = {
     eventsRouter,
-}
+};
