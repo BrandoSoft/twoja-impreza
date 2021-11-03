@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="header">
+        {{> nav}}
+        {{> logo-image}}
+        {{> header-bar headerTitle='Dodano ogłoszenie'}}
+    </div>
+    <div class="main-section">
+        <div class="flexcenter">
+            <div class="party-component">
+                <div class="main-part">
+                    <div class="party-name">
+                        <div class="party-name--name font-yellow">
+                            {{name}}
+                        </div>
+                        <div class="party-name--date font-white">
+                            ({{date}})
+                        </div>
+                    </div>
+                    <div class="party-info">
+                        <div class="party-info--start">
+                            Start: <span class="font-white"> godz: {{this.start}}</span>
+                        </div>
+                        <div class="party-info--place">
+                            Miejsce: <span class="font-white"> {{this.place}}</span>
+                        </div>
+                    </div>
+                    <div class="party-image">
+                        <img src="/assets/images/party-img.jpg" alt="image of party">
+                    </div>
+                    <div class="party-organizer">
+                        <div class="party-organizer--label font-yellow">
+                            Organizator:
+                        </div>
+                        <div class="party-organizer--name_stars">
+                            <div class="party-organizer--name font-red">{{this.organizer}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        {{> footer}}
+    </div>
+</div>
