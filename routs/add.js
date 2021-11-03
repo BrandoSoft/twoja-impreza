@@ -35,14 +35,16 @@ addRouter
 
    .post('/add-party-to-db', urlencodedParser, (req, res) => {
 
-    const body = req.body;
+       const body =req.body;
 
-    const Data = new PartyList(body)
+
+       const Data = new PartyList(body)
 
 
     Data.save()
        .then(()=>{
         res.render('sites/add/added', body)
+
    }).catch(error => console.log(error));
 
 })

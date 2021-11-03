@@ -7,12 +7,12 @@
                     {{this.name}}
                 </div>
                 <div class="party-name--date font-white">
-                    ({{this.date}})
+                    ({{ dateFixer this.date}})
                 </div>
             </div>
             <div class="party-info">
                 <div class="party-info--start">
-                    Start: <span class="font-white"> godz: {{this.start}}</span>
+                    Start: <span class="font-white"> godz: {{this.time}}</span>
                 </div>
                 <div class="party-info--place">
                     Miejsce: <span class="font-white"> {{this.place}}</span>

@@ -24,9 +24,11 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.12"
   },
   "devDependencies": {
+    "handlebars": "^4.5.0",
     "nodemon": "^2.0.14"
   }
 }

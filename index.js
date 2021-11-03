@@ -2,7 +2,7 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 
-const {handlebarsHelpers,} = require('./handlebars-helpers');
+const {handlebarsHelpers,} = require('./utils/handlebars-helpers');
 const {homeRouter,} = require("./routs/home");
 const {addRouter,} = require("./routs/add");
 const {archiveRouter,} = require("./routs/archive");
@@ -28,6 +28,7 @@ app.set('view engine', '.hbs');
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.use(bodyParser.json())
+
 
 
 app.listen(port, () => {
