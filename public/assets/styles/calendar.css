@@ -1,18 +1,18 @@
-#calendar-start {
-    display: none;
-}
+/*#calendar-start {*/
+/*    display: none;*/
+/*}*/
 
-#calendar-end {
-    display: none;
-}
+/*#calendar-end {*/
+/*    display: none;*/
+/*}*/
 
-.start-date:hover > #calendar-start{
-    display: block;
-}
+/*.start-date:hover > #calendar-start{*/
+/*    display: block;*/
+/*}*/
 
-.end-date:hover > #calendar-end{
-    display: block;
-}
+/*.end-date:hover > #calendar-end{*/
+/*    display: block;*/
+/*}*/
 
 
 

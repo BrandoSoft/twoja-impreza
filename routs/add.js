@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-require('dotenv').config();
-const urlq = require('url');
+
+const { database_pass, database_name } = require('../config')
+
 
 const PartyList = require("../models/PartyList");
 
@@ -11,11 +12,9 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const addRouter = express.Router();
 
-const login = process.env.DBNAME;
-const pass = process.env.DBPASS;
 
 // Database url
-const url = `mongodb+srv://${login}:${pass}@cluster0.xll9q.mongodb.net/twojaImprezaDatabase?retryWrites=true&w=majority`;
+const url = `mongodb+srv://${database_name}:${database_pass}@cluster0.xll9q.mongodb.net/twojaImprezaDatabase?retryWrites=true&w=majority`;
 
 mongoose.connect(url, {
         useNewUrlParser: true,
@@ -36,17 +35,14 @@ addRouter
 
    .post('/add-party-to-db', urlencodedParser, (req, res) => {
 
-    const {name, description, date, time, place, organizer} = req.body;
+    const body = req.body;
 
-    const Data = new PartyList({
-        name, description, date, time, place, organizer,
-    })
-       console.log(req.body)
+    const Data = new PartyList(body)
 
-    Data.save().then(()=>{
-        res.render('sites/add/added', {
-            name, description, date, time, place, organizer
-        })
+
+    Data.save()
+       .then(()=>{
+        res.render('sites/add/added', body)
 
    });
 
