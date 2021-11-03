@@ -51,7 +51,6 @@ eventsRouter
 
                     }).catch(error => console.log(error));
 
-
             })
     })
 
