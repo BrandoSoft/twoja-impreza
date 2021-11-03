@@ -10,7 +10,7 @@ const PartyList = require("../models/PartyList");
 const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-const addRouter = express.Router();
+const eventsRouter = express.Router();
 
 
 // Database url
@@ -24,8 +24,8 @@ mongoose.connect(url, {
     .then(console.log("Mongo DB connected :)"))
     .catch(err => console.log(err));
 
-addRouter
-    .get('/dodaj-ogloszenie', (req, res) => {
+eventsRouter
+    .get('/add', (req, res) => {
         res.render('sites/add/add', {})
     })
 
@@ -40,6 +40,10 @@ addRouter
 
        const Data = new PartyList(body)
 
+   .post('/add-to-db', urlencodedParser, (req, res) => {
+    const body = req.body;
+    const Data = new PartyList(body)
+
 
     Data.save()
        .then(()=>{
@@ -47,9 +51,9 @@ addRouter
 
    }).catch(error => console.log(error));
 
+
 })
 
-
 module.exports = {
-    addRouter,
+    eventsRouter,
 }

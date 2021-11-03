@@ -31,6 +31,16 @@ homeRouter
             })
     })
 
+    .get('/home', (req, res) =>{
+        res.render( 'sites/home/home', {
+            info:PARTY_INFO,
+        })
+    })
+    .get('/', (req, res) =>{
+    res.redirect("/home")
+});
+
+
 module.exports = {
     homeRouter,
 }
