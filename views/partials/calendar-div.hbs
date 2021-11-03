@@ -1,0 +1,22 @@
+<div>
+    <form class="calendar-form">
+
+        <div class="start-date">
+            <label>Data początkowa:</label>
+            <input type="search" name="start-date" id="select-start-day" value=""/>
+            <div id="calendar-start">
+                {{>calendar-start}}
+            </div>
+        </div>
+
+        <div class="end-date">
+            <label>Data końcowa:</label>
+            <input type="search" name="end-date" id="select-end-day" value=""/>
+            <div id="calendar-end">
+                {{>calendar-end}}
+            </div>
+        </div>
+
+        <button type="submit">Sprawdź!</button>
+    </form>
+</div>
