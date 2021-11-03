@@ -1,13 +1,17 @@
 const express = require('express');
 
-const userAccountRouter = express.Router();
+const userRouter = express.Router();
 
-userAccountRouter
-    .get('/panel-uzytkownika', (req, res) => {
+userRouter
+    .get('/account', (req, res) => {
         res.render('sites/user-account/user-account', {
+        })
+    })
+    .get('/party', (req, res) => {
+        res.render('sites/user-party/user-party', {
         })
     });
 
 module.exports = {
-    userAccountRouter,
+    userRouter,
 }
