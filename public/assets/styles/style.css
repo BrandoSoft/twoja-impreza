@@ -5,6 +5,9 @@
     box-sizing: border-box;
     font-family: "Gill Sans MT Condensed", Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+a{
+    text-decoration: none;
+}
 
 .container {
     display: flex;
@@ -264,6 +267,11 @@
 
 .party-buttons--more-info {
     display: flex;
+    border-color: #67FFE2;
+    color: #67FFE2;
+}
+.party-buttons--more-info a{
+    text-decoration: none;
     border-color: #67FFE2;
     color: #67FFE2;
 }

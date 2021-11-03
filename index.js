@@ -2,7 +2,7 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 
-const {handlebarsHelpers,} = require('./handlebars-helpers');
+const {handlebarsHelpers,} = require('./utils/handlebars-helpers');
 const {homeRouter,} = require("./routs/home");
 const {eventsRouter,} = require("./routs/add");
 const {archiveRouter,} = require("./routs/archive");
@@ -23,6 +23,7 @@ app.use('/events', eventsRouter);
 app.use('/archive', archiveRouter);
 app.use('/user', userRouter);
 app.use('/', homeRouter);
+
 
 app.listen(port, () => {
     console.log(`Working on http://localhost:${port}`)
