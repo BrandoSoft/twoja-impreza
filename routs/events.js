@@ -38,6 +38,7 @@ eventsRouter
                        data:data
                    })
                })
+       res.render('sites/home/party-info')
        })
 
 module.exports = {
