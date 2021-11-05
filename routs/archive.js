@@ -1,11 +1,17 @@
 const express = require('express');
+const {verifyAccount} = require("./auth-utils");
 
 const archiveRouter = express.Router();
 
 archiveRouter
     .get('/events', (req, res) => {
-        res.render('sites/archive/archive', {
-        })
+        if (verifyAccount(req.cookies.yourPartyToken)){
+            //ZALOGOWANY
+            res.render('sites/archive/archive', {})
+        } else {
+            //NIEZALOGOWANY
+            res.render('sites/archive/archive', {})
+        }
     })
 
 module.exports = {

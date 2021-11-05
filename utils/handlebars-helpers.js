@@ -1,16 +1,10 @@
-
-
-
 const moment = require('moment')
 
+//function test
+//console.log(handlebarsHelpers.dateFixer(new Date("December 17, 1995 03:24:00")))
 
 const handlebarsHelpers = {
-    dateFixer: function (datetoFix) {
-        let isoDate = datetoFix;
-        let newDate = moment.utc(isoDate).format('DD-MM-YY');
-        return newDate;
-    },
-
+    dateFixer: (date) => moment.utc(date).format('DD-MM-YY'),
 };
 
 module.exports = {
