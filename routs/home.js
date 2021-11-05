@@ -19,19 +19,6 @@ homeRouter
         res.redirect("/home")
     })
 
-    .post('/test', (req, res) => {
-        console.log(req.body.date1.dateInstance)
-        console.log(req.body.date2.dateInstance)
-
-        PartyList.find({date: {$gte: new Date(req.body.date1.dateInstance), $lte: new Date(req.body.date2.dateInstance)}}).lean()
-            .then(data => {
-                res.render('sites/home/home', {
-                    info: data,
-                })
-            })
-            .catch(error => console.error(error))
-    })
-
 
 module.exports = {
     homeRouter,

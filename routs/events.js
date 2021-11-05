@@ -40,8 +40,7 @@ eventsRouter
                     data: data
                 })
             })
-        res.render('sites/home/party-info')
-    })
+            })
 
     .post('/get-events-by-date', (req, res) => {
 
