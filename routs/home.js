@@ -16,11 +16,6 @@ homeRouter
         }
     })
 
-    .post('/test', (req, res) => {
-        const data = {name: "seedot"}
-        findAndRender(req, res, data);
-    })
-
     .get('/', (req, res) => {
         if (verifyAccount(req.cookies.yourPartyToken)){
             //ZALOGOWANY
@@ -29,6 +24,10 @@ homeRouter
             //NIEZALOGOWANY
             res.redirect("/home")
         }
+
+    .get('/', (req, res) => {
+        res.redirect("/home")
+
     })
 
 
