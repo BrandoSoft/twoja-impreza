@@ -19,21 +19,11 @@ homeRouter
         res.redirect("/home")
     })
 
-    .post('/test2', (req, res) => {
-
-        PartyList.find({name: "seedot"}).lean()
-            .then(data => {
-                res.render('sites/home/home', {
-                    info: data,
-                })
-            })
-            .catch(error => console.error(error))
-
-    })
     .post('/test', (req, res) => {
+        console.log(req.body.date1.dateInstance)
+        console.log(req.body.date2.dateInstance)
 
-
-        PartyList.find({name: "seedot"}).lean()
+        PartyList.find({date: {$gte: new Date(req.body.date1.dateInstance), $lte: new Date(req.body.date2.dateInstance)}}).lean()
             .then(data => {
                 res.render('sites/home/home', {
                     info: data,

@@ -1,7 +1,8 @@
 <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 
 
-<input id="picker" class="callendar-input">
+
+    <input id="picker" class="callendar-input">
 
 <script>
     function generateCalendar() {
@@ -17,7 +18,7 @@
             setup: (picker) => {
                 picker.on('selected', (date1, date2) => {
                     const body = {date1, date2}
-                    fetch('/test', {
+                    fetch('/events/get-events-by-date', {
                         method: 'post',
                         body: JSON.stringify(body),
                         headers: {'Content-Type': 'application/json'}
@@ -25,7 +26,8 @@
                         return response.text();
                     })
                             .then((html) => {
-                                document.body.innerHTML = html
+                                document.body.innerHTML = html;
+                                generateCalendar();
                             });
                 });
             },
@@ -35,3 +37,6 @@
 
     generateCalendar();
 </script>
+
+<!--TODO: Wynieść ten skrypt z hbs-->
+
