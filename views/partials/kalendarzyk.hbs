@@ -1,6 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 
-
 <input id="picker" class="callendar-input">
 
 <script>
@@ -14,24 +13,7 @@
             tooltipNumber: (totalDays) => {
                 return totalDays - 1;
             },
-            setup: (picker) => {
-                picker.on('selected', (date1, date2) => {
-                    const body = {date1, date2}
-                    fetch('/test', {
-                        method: 'post',
-                        body: JSON.stringify(body),
-                        headers: {'Content-Type': 'application/json'}
-                    }).then((response) => {
-                        return response.text();
-                    })
-                            .then((html) => {
-                                document.body.innerHTML = html
-                            });
-                });
-            },
         })
-
     }
-
     generateCalendar();
 </script>

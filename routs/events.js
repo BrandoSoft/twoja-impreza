@@ -2,9 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const PartyList = require("../models/PartyList");
 const { connectDataBase } = require('../data/database')
-const mongoose = require("mongoose");
+const {verifyAccount} = require("./auth-utils");
 
-const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const eventsRouter = express.Router();
@@ -15,13 +14,26 @@ connectDataBase();
 
 eventsRouter
     .get('/add', (req, res) => {
-        res.render('sites/add/add', {})
+        if (verifyAccount(req.cookies.yourPartyToken)){
+            //ZALOGOWANY
+            res.render('sites/add/add', {})
+        } else {
+            //NIEZALOGOWANY
+            res.render('sites/add/add', {})
+        }
     })
 
     .get('/added', (req, res) => {
-        res.render('sites/add/added', {})
+        if (verifyAccount(req.cookies.yourPartyToken)){
+            //ZALOGOWANY
+            res.render('sites/add/added', {})
+        } else {
+            //NIEZALOGOWANY
+            res.render('sites/add/added', {})
+        }
     })
 
+    //Do metod poniżej nie dodawałem weryfikacji
    .post('/add-to-db', urlencodedParser, (req, res) => {
     const Data = new PartyList(req.body)
     Data.save()

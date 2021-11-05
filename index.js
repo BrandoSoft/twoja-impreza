@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser')
 
 const {handlebarsHelpers,} = require('./utils/handlebars-helpers');
 const {homeRouter,} = require("./routs/home");
@@ -17,6 +18,7 @@ app.set('view engine', '.hbs');
 
 // Routing
 app.use(express.static('public'));
+app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use('/events', eventsRouter);
