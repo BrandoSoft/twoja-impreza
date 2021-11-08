@@ -39,24 +39,24 @@ const createAccount = (req, res) => {
     // } catch (err) {
     //     res.sendStatus(401)
     // }
-
-    const RegisterData = new RegisterUser(
-        id,
-        login,
-        password,
-        email,
-        idHash: setHashId((id, login),
-        )
-    try{
-        RegisterData.save()
-            .then(() => {
-                res.render('sites/add/added', req.body)
-            })
-            .catch(error => console.log(error))
-    }catch (err) {
-        res.sendStatus(401)
-    }
-
+    //
+    // const RegisterData = new RegisterUser(
+    //     id,
+    //     login,
+    //     password,
+    //     email,
+    //     idHash: setHashId((id, login),
+    //     )
+    // try{
+    //     RegisterData.save()
+    //         .then(() => {
+    //             res.render('sites/add/added', req.body)
+    //         })
+    //         .catch(error => console.log(error))
+    // }catch (err) {
+    //     res.sendStatus(401)
+    // }
+    //
 
 
 }
