@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const {access_token} = require("../config");
 const { users } = require("../data/imitationDatabase")
 const {randomBytes, createHmac} = require("crypto");
+const RegisterUser = require("../models/RegisterUser");
 
 function setHashId(idUser, login){
     const salt = randomBytes(64).toString("hex")
@@ -22,21 +23,42 @@ const getToken = (req, res) => {
 }
 
 const createAccount = (req, res) => {
-    try {
-        const { id, login, password, email} = req.body;
-        users.push(
-            {
-                id,
-                login,
-                password,
-                email,
-                idHash: setHashId(id, login),
-            }
+    const { id, login, password, email} = req.body;
+    // try {
+    //
+    //     users.push(
+    //         {
+    //             id,
+    //             login,
+    //             password,
+    //             email,
+    //             idHash: setHashId(id, login),
+    //         }
+    //     )
+    //     res.sendStatus(200)
+    // } catch (err) {
+    //     res.sendStatus(401)
+    // }
+
+    const RegisterData = new RegisterUser(
+        id,
+        login,
+        password,
+        email,
+        idHash: setHashId((id, login),
         )
-        res.sendStatus(200)
-    } catch (err) {
+    try{
+        RegisterData.save()
+            .then(() => {
+                res.render('sites/add/added', req.body)
+            })
+            .catch(error => console.log(error))
+    }catch (err) {
         res.sendStatus(401)
     }
+
+
+
 }
 
 const verifyAccount = (token) => {

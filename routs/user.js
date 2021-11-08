@@ -7,9 +7,10 @@ userRouter
     .post('/login', (req, res) => {
         getToken(req, res);
     })
-    .post('/registry', (req, res) => {
+    .post('/register', (req, res) => {
         createAccount(req, res);
     })
+
     .get('/account', (req, res) => {
         if (verifyAccount(req.cookies.yourPartyToken)){
             //ZALOGOWANY

@@ -2,20 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const PartyList = require("../models/PartyList");
 
-const { connectDataBase } = require('../data/database')
 const {verifyAccount} = require("./auth-utils");
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const {connectDataBase} = require('../data/database')
 const mongoose = require("mongoose");
 
-const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({extended: false})
 
-
 const eventsRouter = express.Router();
-
 
 // Database url
 connectDataBase();
@@ -70,9 +65,6 @@ eventsRouter
             })
 
     .post('/get-events-by-date', (req, res) => {
-
-        console.log(req.body.date1.dateInstance)
-        console.log(req.body.date2.dateInstance)
 
         PartyList.find({
             date: {
