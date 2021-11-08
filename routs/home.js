@@ -17,14 +17,15 @@ homeRouter
     })
 
     .get('/', (req, res) => {
-        if (verifyAccount(req.cookies.yourPartyToken)){
-            //ZALOGOWANY
-            res.redirect("/home")
-        } else {
-            //NIEZALOGOWANY
-            res.redirect("/home")
+            if (verifyAccount(req.cookies.yourPartyToken)) {
+                //ZALOGOWANY
+                res.redirect("/home")
+            } else {
+                //NIEZALOGOWANY
+                res.redirect("/home")
+            }
         }
-
+    )
     .get('/', (req, res) => {
         res.redirect("/home")
 
@@ -33,4 +34,4 @@ homeRouter
 
 module.exports = {
     homeRouter,
-}
+};
