@@ -1,10 +1,11 @@
 const jwt = require("jsonwebtoken");
 const {access_token} = require("../config");
-const { users } = require("../data/imitationDatabase")
+const {users} = require("../data/imitationDatabase")
 const {randomBytes, createHmac} = require("crypto");
 const RegisterUser = require("../models/RegisterUser");
+const { v4: uuidv4 } = require('uuid');
 
-function setHashId(idUser, login){
+function setHashId(idUser, login) {
     const salt = randomBytes(64).toString("hex")
     return createHmac('sha512', salt)
         .update(idUser.toString().concat(login))
@@ -23,40 +24,25 @@ const getToken = (req, res) => {
 }
 
 const createAccount = (req, res) => {
-    const { id, login, password, email} = req.body;
-    // try {
-    //
-    //     users.push(
-    //         {
-    //             id,
-    //             login,
-    //             password,
-    //             email,
-    //             idHash: setHashId(id, login),
-    //         }
-    //     )
-    //     res.sendStatus(200)
-    // } catch (err) {
-    //     res.sendStatus(401)
-    // }
-    //
-    // const RegisterData = new RegisterUser(
-    //     id,
-    //     login,
-    //     password,
-    //     email,
-    //     idHash: setHashId((id, login),
-    //     )
-    // try{
-    //     RegisterData.save()
-    //         .then(() => {
-    //             res.render('sites/add/added', req.body)
-    //         })
-    //         .catch(error => console.log(error))
-    // }catch (err) {
-    //     res.sendStatus(401)
-    // }
-    //
+    // @TODO Dodać sprawdzanie, czy istnieje taki user, przed dodaniem :), a wcześniej czy password 1 odfpowiada password 2
+
+    const id = uuidv4();
+    const {login, password, password2, email} = req.body;
+
+    const RegisterData = new RegisterUser({
+            id,
+            login,
+            password,
+            email,
+            idHash: setHashId(id, login)
+        }
+    )
+    RegisterData.save()
+        .then(() => {
+            res.render('sites/user-account/register-confirmation', {
+               data: req.body})
+        })
+        .catch(error => console.log(error))
 
 
 }
