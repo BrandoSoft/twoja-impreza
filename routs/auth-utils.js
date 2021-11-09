@@ -3,7 +3,8 @@ const {access_token} = require("../config");
 const {users} = require("../data/imitationDatabase")
 const {randomBytes, createHmac} = require("crypto");
 const RegisterUser = require("../models/RegisterUser");
-const { v4: uuidv4 } = require('uuid');
+const {v4: uuidv4} = require('uuid');
+
 
 function setHashId(idUser, login) {
     const salt = randomBytes(64).toString("hex")
@@ -40,11 +41,37 @@ const createAccount = (req, res) => {
     RegisterData.save()
         .then(() => {
             res.render('sites/user-account/register-confirmation', {
-               data: req.body})
+                data: req.body
+            })
         })
         .catch(error => console.log(error))
 
 
+}
+
+const checkUserInDB = (req, res) => {
+    //
+
+    const {login, password} = req.body;
+
+    RegisterUser.find({
+        name: login,
+        password: password
+    })
+        .lean()
+        .then((data) => {
+
+                if (data.length < 1) {
+                    res.render('sites/user-account/login-fail')
+                    return
+                }
+
+                res.render('sites/user-account/user-account', {
+                    data: data,
+                })
+            }
+        )
+        .catch(error => console.error(error))
 }
 
 const verifyAccount = (token) => {
@@ -64,4 +91,5 @@ module.exports = {
     getToken,
     verifyAccount,
     createAccount,
+    checkUserInDB,
 }

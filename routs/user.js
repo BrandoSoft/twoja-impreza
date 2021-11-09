@@ -1,5 +1,5 @@
 const express = require('express');
-const {getToken, verifyAccount, createAccount} = require("./auth-utils");
+const {getToken, verifyAccount, createAccount, checkUserInDB} = require("./auth-utils");
 
 const userRouter = express.Router();
 
@@ -18,7 +18,8 @@ userRouter
     })
 
     .post('/login', (req, res) => {
-        getToken(req, res);
+        // getToken(req, res);
+        checkUserInDB(req, res);
     })
 
 
