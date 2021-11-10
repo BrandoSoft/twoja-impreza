@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "compile:sass":" node-sass public/assets/sass/main.scss public/assets/styles/test-style.css -w"
+    "compile:sass": " node-sass public/assets/sass/main.scss public/assets/styles/style.css -w"
   },
   "repository": {
     "type": "git",
