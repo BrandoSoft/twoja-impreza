@@ -49,8 +49,7 @@ const createAccount = (req, res) => {
 
 }
 
-const checkUserInDB = (req, res) => {
-    //
+const checkUserInDB = (req, res, url) => {
 
     const {login, password} = req.body;
 
@@ -61,30 +60,29 @@ const checkUserInDB = (req, res) => {
         .lean()
         .then((data) => {
 
-                if (data.length < 1) {
+                if (data.length < 1 ) {
                     res.render('sites/user-account/login-fail')
                     return
                 }
-
-                res.render('sites/user-account/user-account', {
-                    data: data,
-                })
+            const returnUser = {login: data.login, idHash: data.idHash}
+            const token = jwt.sign(returnUser, access_token);
+            res.cookie("yourPartyToken", token);
+            res.redirect(url)
             }
         )
         .catch(error => console.error(error))
 }
 
 const verifyAccount = (token) => {
-    const valueToken = jwt.decode(token);
-    try {
-        const user = users.find(user => user.idHash === valueToken.idHash);
-        if (!user) {
-            return false
-        }
-        return true
-    } catch (err) {
-        return false
-    }
+    return jwt.verify(token, access_token, (err) => {
+        if(err) return false;
+        return true;
+    })
+}
+
+const logoutUser = (req, res) =>{
+    res.clearCookie("yourPartyToken");
+    res.render('sites/user-account/register-login-form', {})
 }
 
 module.exports = {
@@ -92,4 +90,5 @@ module.exports = {
     verifyAccount,
     createAccount,
     checkUserInDB,
+    logoutUser,
 }

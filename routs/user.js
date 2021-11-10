@@ -1,5 +1,5 @@
 const express = require('express');
-const {getToken, verifyAccount, createAccount, checkUserInDB} = require("./auth-utils");
+const {verifyAccount, createAccount, checkUserInDB, logoutUser} = require("./auth-utils");
 
 const userRouter = express.Router();
 
@@ -7,7 +7,7 @@ userRouter
     .get('/', (req, res) => {
         if (verifyAccount(req.cookies.yourPartyToken)) {
             //ZALOGOWANY
-            res.render('sites/user-account/register-login-form', {})
+            res.render('sites/user-account/user-account', {})
         } else {
             //NIEZALOGOWANY
             res.render('sites/user-account/register-login-form', {})
@@ -18,8 +18,11 @@ userRouter
     })
 
     .post('/login', (req, res) => {
-        // getToken(req, res);
-        checkUserInDB(req, res);
+
+        checkUserInDB(req, res, '/user');
+    })
+    .get('/logout', (req, res) => {
+        logoutUser(req, res);
     })
 
 
@@ -34,8 +37,20 @@ userRouter
     })
 
     .get('/events', (req, res) => {
-        res.render('sites/user-party/user-party', {})
-    });
+        if (verifyAccount(req.cookies.yourPartyToken)) {
+            //ZALOGOWANY
+            res.render('sites/user-party/user-party', {})
+        } else {
+            //NIEZALOGOWANY
+            res.render('sites/user-party/event-login', {})
+        }
+
+    })
+
+    .post('/events/login', (req, res) => {
+
+        checkUserInDB(req, res, '/user/events');
+    })
 
 module.exports = {
     userRouter,
