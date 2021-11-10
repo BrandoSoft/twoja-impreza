@@ -19,12 +19,6 @@ a {
     margin: 0 auto;
 }
 
-.flexcenter {
-    display: flex;
-    width: 100%;
-    margin: 30px auto;
-    justify-content: center;
-}
 
 .header {
     display: flex;
@@ -278,7 +272,7 @@ a {
 }
 
 
-/*Wyprowadzić do zmiennych w scss*/
+/*Wyprowadzić do zmiennych w scss nie potrzebne klasy*/
 .font-red {
     color: #E83D25;
 }
