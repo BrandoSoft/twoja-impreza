@@ -4,7 +4,7 @@
         {{> logo-image}}
         {{> header-bar headerTitle='Dodaj ogłoszenie'}}
     </div>
-    <div class="main-section">
+    <main class="main-section">
         <form action="/events/add-to-db" method="post">
             <div class="form-group">
             <label for="name">Nazwa imprezy</label>
@@ -32,7 +32,7 @@
             </div>
             <input type="submit" value="Dodaj impreze">
         </form>
-    </div>
+    </main>
     <div class="footer">
         {{> footer}}
     </div>

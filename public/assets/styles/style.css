@@ -61,7 +61,7 @@ a{
     font-size: 28px;
 }
 
-.navigation {
+.main-navigation {
     display: flex;
     align-self: flex-start;
     justify-content: center;
@@ -72,15 +72,15 @@ a{
     border-bottom: 8px solid #fff;
 }
 
-.navigation ul {
+.main-navigation__list {
     list-style: none;
 }
 
-.navigation li {
+.main-navigation__item{
     display: inline-block;
 }
 
-.navigation li a {
+.main-navigation__link{
     display: block;
     font-family: "Gill Sans MT Condensed", Arial, "Helvetica Neue", Helvetica, sans-serif;;
     letter-spacing: 3px;
@@ -99,7 +99,7 @@ a{
     padding-top: 20px;
 }
 
-.logo-img {
+.logo__img {
     height: 330px;
 }
 
@@ -116,7 +116,7 @@ a{
     background: linear-gradient(180deg, rgba(254, 148, 0, 1) 0%, rgba(246, 38, 0, 1) 100%);
 }
 
-.header-bar--title {
+.header-bar__title {
     display: block;
 
     letter-spacing: 3px;
@@ -126,7 +126,7 @@ a{
     color: #fff;
 }
 
-.header-bar--arrow {
+.header-bar__arrow {
     height: 150%;
 }
 
@@ -139,7 +139,7 @@ a{
     background-repeat: repeat;
 }
 
-.menu-left {
+.main-section__aside{
     display: flex;
     min-height: 1200px;
     width: 21%;
@@ -148,7 +148,7 @@ a{
     border-radius: 5px;
 }
 
-.main-container {
+.main-section__content {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -168,6 +168,15 @@ a{
     border-radius: 10px;
 }
 
+.party-component__main {
+    width: 96%;
+    margin: 2%;
+    background: rgb(69, 217, 215);
+    background: linear-gradient(270deg, rgba(69, 217, 215, 1) 0%, rgba(153, 254, 240, 1) 100%);
+    border-radius: 10px;
+}
+
+/*Wyprowadzić do zmiennych w scss*/
 .font-red {
     color: #E83D25;
 }
@@ -180,13 +189,8 @@ a{
     color: #fff;
 }
 
-.main-part {
-    width: 96%;
-    margin: 2%;
-    background: rgb(69, 217, 215);
-    background: linear-gradient(270deg, rgba(69, 217, 215, 1) 0%, rgba(153, 254, 240, 1) 100%);
-    border-radius: 10px;
-}
+
+
 
 .party-name {
     display: flex;
