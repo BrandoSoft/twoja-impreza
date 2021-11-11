@@ -27,7 +27,7 @@
   &__title {
     display: block;
     letter-spacing: 3px;
-    font-size: 45px;
+    font-size: 4.5rem;
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
@@ -45,7 +45,7 @@
   align-self: flex-start;
   justify-content: center;
   width: 100%;
-  margin: 2px auto 2px;
+  margin: .2rem auto .2rem;
   background: rgb(229, 67, 37);
   background: linear-gradient(90deg, rgba(229, 67, 37, 1) 0%, rgba(255, 157, 0, 1) 100%);
   border-bottom: 8px solid #fff;
@@ -62,8 +62,8 @@
     display: block;
     font-family: "Gill Sans MT Condensed", Arial, "Helvetica Neue", Helvetica, sans-serif;;
     letter-spacing: 3px;
-    padding: 10px 20px;
-    font-size: 38px;
+    padding: 1rem 2rem;
+    font-size: 3.8rem;
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
@@ -76,7 +76,7 @@
   align-self: flex-start;
   justify-content: center;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 2rem;
 
   &__img
   {
@@ -90,10 +90,9 @@
 {
   display: flex;
   align-items: flex-start;
-  width: 100%;
   background-image: url("/assets/images/main-background.jpg");
-  background-size: auto;
-  background-repeat: repeat;
+  background-size: cover;
+
 
   //probably to remove
   &__aside
@@ -102,7 +101,7 @@
     min-height: 1200px;
     width: 21%;
     background-color: #fff;
-    margin: 100px 10px 100px 30px;
+    margin: 10rem 1rem 10rem 3rem;
     border-radius: 5px;
   }
 
@@ -114,7 +113,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     width: 75%;
-    margin: 100px 10px 100px 10px;
+    margin: 10rem 1rem 10rem 1rem;
     border-radius: 5px;
   }
 }
@@ -143,7 +142,7 @@
     text-transform: uppercase;
     text-decoration: none;
     width: 100%;
-    font-size: 28px;
+    font-size: 2.8rem;
   }
 }
 

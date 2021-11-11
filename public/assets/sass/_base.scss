@@ -1,19 +1,31 @@
-* {
+*,
+*::after,
+*::before{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Gill Sans MT Condensed", Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
+} //main reset
 
 a {
   text-decoration: none;
 }
 
 
+// font-size bazowo ustawiony na 10px
+// 16px domyslny font-size przeglądarki * 62.5% = 10px
+// 1REM = 10px, ponieważ jeden REM jest zawsze równy właściwości font-size elementu html przeglądarki
+html
+{
+  font-size: 62.5%;
+}
+
+body
+{
+  font-family: "Gill Sans MT Condensed", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   width: 1440px;
   min-height: 100vh;
   margin: 0 auto;
