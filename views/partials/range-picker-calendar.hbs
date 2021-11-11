@@ -2,41 +2,46 @@
 
 
 
-    <input id="picker" class="callendar-input">
 
-<script>
-    function generateCalendar() {
-        new Litepicker({
-            buttonText: {"apply": "Apply"},
+<form action="/get-events-by-date" method="post">
+<input id="picker" class="callendar-input" name="daty">
 
-            singleMode: false,
-            inlineMode: true,
-            element: document.getElementById("picker"),
-            tooltipNumber: (totalDays) => {
-                return totalDays - 1;
-            },
-            setup: (picker) => {
-                picker.on('selected', (date1, date2) => {
-                    const body = {date1, date2}
-                    fetch('/events/get-events-by-date', {
-                        method: 'post',
-                        body: JSON.stringify(body),
-                        headers: {'Content-Type': 'application/json'}
-                    }).then((response) => {
-                        return response.text();
-                    })
-                            .then((html) => {
-                                document.body.innerHTML = html;
-                                generateCalendar();
-                            });
-                });
-            },
-        })
+    <script>
+        function generateCalendar() {
+            new Litepicker({
+                buttonText: {"apply": "Apply"},
+                singleMode: false,
+                inlineMode: true,
+                element: document.getElementById("picker"),
+                tooltipNumber: (totalDays) => {
+                    return totalDays - 1;
+                },
+                // setup: (picker) => {
+                //     picker.on('selected', (date1, date2) => {
+                //         // const body = {date1, date2}
+                //         // fetch('/events/get-events-by-date', {
+                //         //     method: 'post',
+                //         //     body: JSON.stringify(body),
+                //         //     headers: {'Content-Type': 'application/json'}
+                //         // }).then((response) => {
+                //         //     return response.text();
+                //         // })
+                //         //         .then((html) => {
+                //         //             document.body.innerHTML = html;
+                //         //             generateCalendar();
+                //         //         });
+                //     });
+                // },
+            })
+        }
 
-    }
+    </script>
+    <script>generateCalendar()</script>
+    <button type="submit"> wyslij</button>
+</form>
 
-    generateCalendar();
-</script>
+
+
 
 <!--TODO: Wynieść ten skrypt z hbs-->
 

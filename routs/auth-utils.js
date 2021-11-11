@@ -49,20 +49,19 @@ const checkUserInDB = (req, res, url) => {
     const {login, password} = req.body;
 
     RegisterUser.find({
-        name: login,
+        login: login,
         password: password
     })
         .lean()
         .then((data) => {
-
                 if (data.length < 1) {
-                    res.render('sites/user-account/login-fail')
-                    return
+                    res.render('sites/user-account/login-fail');
+                } else {
+                    const returnUser = {login: data.login, idHash: data.idHash}
+                    const token = jwt.sign(returnUser, access_token);
+                    res.cookie("yourPartyToken", token);
+                    res.redirect(url)
                 }
-                const returnUser = {login: data.login, idHash: data.idHash}
-                const token = jwt.sign(returnUser, access_token);
-                res.cookie("yourPartyToken", token);
-                res.redirect(url)
             }
         )
         .catch(error => console.error(error))
@@ -75,9 +74,10 @@ const verifyLoginAndMail = async (req, res) => {
         login, password
     }).lean()
         .then(data => {
+
             return data
         })
-        .catch(err=>err)
+        .catch(err => err)
 
 }
 

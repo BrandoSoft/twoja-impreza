@@ -18,28 +18,22 @@ userRouter
             const info = verifyLoginAndMail(req, res);
 
             info.then(function (result){
-                if(result.length > 0){
-                    console.log(result)
+                if(!(result.length < 1) ){
+                    console.log('pierwszy if', result)
                     res.send('jest juz uzytkownik')
                 }
-                if(result){
+                else{
+                    console.log('2 if', result)
                     createAccount(req, res)
-
                 }
             })
-
-
         }else{
             res.send('hasla rozne od siebie')
         }
-
-
-
     })
 
-    .post('/login', (req, res) => {
-                checkUserInDB(req, res, '/user');
-    })
+
+
     .get('/logout', (req, res) => {
         logoutUser(req, res);
     })
@@ -51,7 +45,7 @@ userRouter
             res.render('sites/user-account/user-account', {})
         } else {
             //NIEZALOGOWANY
-            res.render('sites/user-account/user-account', {})
+            res.render('sites/user-account/register-login-form', {})
         }
     })
 
@@ -64,6 +58,9 @@ userRouter
             res.render('sites/user-party/event-login', {})
         }
 
+    })
+    .post('/login', (req, res) => {
+        checkUserInDB(req, res, '/user');
     })
 
     .post('/events/login', (req, res) => {

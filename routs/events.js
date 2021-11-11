@@ -65,7 +65,7 @@ eventsRouter
             })
 
     .post('/get-events-by-date', (req, res) => {
-
+        console.log(req.body)
         PartyList.find({
             date: {
                 $gte: new Date(req.body.date1.dateInstance),
