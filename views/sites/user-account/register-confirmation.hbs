@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="header">
+        {{> nav}}
+        {{> logo-image}}
+        {{> header-bar headerTitle='Panel Użytkownika'}}
+    </div>
+    <div class="main-section">
+      {{log data}}
+            <p>Zarejestrowano użytkownika o nazwie {{data.login}}</p>
+            <p>oraz Loginie {{data.email}}</p>
+            <p> Teraz możesz się zalogować!</p>
+        {{> login-form }}
+    </div>
+    <div class="footer">
+        {{> footer}}
+    </div>
+</div>
