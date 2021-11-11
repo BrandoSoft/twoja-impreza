@@ -25,19 +25,16 @@ const getToken = (req, res) => {
 }
 
 const createAccount = (req, res) => {
-    // @TODO Dodać sprawdzanie, czy istnieje taki user, przed dodaniem :), a wcześniej czy password 1 odfpowiada password 2
-
     const id = uuidv4();
-    const {login, password, password2, email} = req.body;
+    const {login, password, email} = req.body;
 
     const RegisterData = new RegisterUser({
-            id,
-            login,
-            password,
-            email,
-            idHash: setHashId(id, login)
-        }
-    )
+        id,
+        login,
+        password,
+        email,
+        idHash: setHashId(id, login)
+    })
     RegisterData.save()
         .then(() => {
             res.render('sites/user-account/register-confirmation', {
@@ -45,12 +42,9 @@ const createAccount = (req, res) => {
             })
         })
         .catch(error => console.log(error))
-
-
 }
 
-const checkUserInDB = (req, res) => {
-    //
+const checkUserInDB = (req, res, url) => {
 
     const {login, password} = req.body;
 
@@ -65,26 +59,38 @@ const checkUserInDB = (req, res) => {
                     res.render('sites/user-account/login-fail')
                     return
                 }
-
-                res.render('sites/user-account/user-account', {
-                    data: data,
-                })
+                const returnUser = {login: data.login, idHash: data.idHash}
+                const token = jwt.sign(returnUser, access_token);
+                res.cookie("yourPartyToken", token);
+                res.redirect(url)
             }
         )
         .catch(error => console.error(error))
 }
 
+const verifyLoginAndMail = async (req, res) => {
+    const {login, password} = req.body;
+
+    return await RegisterUser.find({
+        login, password
+    }).lean()
+        .then(data => {
+            return data
+        })
+        .catch(err=>err)
+
+}
+
 const verifyAccount = (token) => {
-    const valueToken = jwt.decode(token);
-    try {
-        const user = users.find(user => user.idHash === valueToken.idHash);
-        if (!user) {
-            return false
-        }
-        return true
-    } catch (err) {
-        return false
-    }
+    return jwt.verify(token, access_token, (err) => {
+        if (err) return false;
+        return true;
+    })
+}
+
+const logoutUser = (req, res) => {
+    res.clearCookie("yourPartyToken");
+    res.render('sites/user-account/register-login-form', {})
 }
 
 module.exports = {
@@ -92,4 +98,6 @@ module.exports = {
     verifyAccount,
     createAccount,
     checkUserInDB,
+    logoutUser,
+    verifyLoginAndMail,
 }
