@@ -1,5 +1,5 @@
 .party-buttons i {
-  padding: 5px;
+  padding: .5rem;
 }
 
 .added-h2 {
@@ -17,16 +17,23 @@
 .form-group-date {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 1rem;
 }
 
 .form-group label {
   display: block;
-  padding: 5px 10px;
+  padding:.5rem 1rem;
   color: #000;
-  font-size: 30px
+  font-size: 3rem;
 }
 
 .callendar-input {
   display: none;
+}
+
+#calendar
+{
+  font-size: 2rem;
+  color: #008066;
+  display: block;
 }
