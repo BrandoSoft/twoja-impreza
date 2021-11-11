@@ -1,5 +1,5 @@
 const express = require('express');
-const {verifyAccount, createAccount, checkUserInDB, logoutUser} = require("./auth-utils");
+const {verifyAccount, createAccount, checkUserInDB, logoutUser, verifyLoginAndMail} = require("./auth-utils");
 
 const userRouter = express.Router();
 
@@ -13,13 +13,32 @@ userRouter
             res.render('sites/user-account/register-login-form', {})
         }
     })
-    .post('/register', (req, res) => {
-        createAccount(req, res);
+    .post('/register', async (req, res) => {
+        if( req.body.password === req.body.password2){
+            const info = verifyLoginAndMail(req, res);
+
+            info.then(function (result){
+                if(result.length > 0){
+                    console.log(result)
+                    res.send('jest juz uzytkownik')
+                }
+                if(result){
+                    createAccount(req, res)
+
+                }
+            })
+
+
+        }else{
+            res.send('hasla rozne od siebie')
+        }
+
+
+
     })
 
     .post('/login', (req, res) => {
-
-        checkUserInDB(req, res, '/user');
+                checkUserInDB(req, res, '/user');
     })
     .get('/logout', (req, res) => {
         logoutUser(req, res);
