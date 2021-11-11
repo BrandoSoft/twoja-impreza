@@ -14,7 +14,7 @@ function connectDataBase(){
 }
 
 function findAndRender(req, res, data){
-    PartyList.find(data).lean()
+    PartyList.find(data).lean().sort({date: 1})
         .then(data => {
             res.render('sites/home/home', {
                 info: data,
