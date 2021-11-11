@@ -1,41 +1,41 @@
 {{#each info}}
 
     <div class="party-component">
-        <div class="main-part">
-            <div class="party-name">
-                <div class="party-name--name font-yellow">
+        <div class="party-component__main">
+            <div class="party-component__overview">
+                <div class="party-component__name font-yellow">
                     {{this.name}}
                 </div>
-                <div class="party-name--date font-white">
+                <div class="party-component__date font-white">
                     ({{ dateFixer this.date}})
                 </div>
             </div>
-            <div class="party-info">
-                <div class="party-info--start">
+            <div class="party-component__info">
+                <div class="party-component__info--start">
                     Start: <span class="font-white"> godz: {{this.time}}</span>
                 </div>
-                <div class="party-info--place">
+                <div class="party-component__info--place">
                     Miejsce: <span class="font-white"> {{this.place}}</span>
                 </div>
             </div>
-            <div class="party-image">
-                <img src="/assets/images/party-img.jpg" alt="image of party">
+            <div class="party-component__box-image">
+                <img src="/assets/images/party-img.jpg" class="party-component__image" alt="image of party">
             </div>
-            <div class="party-organizer">
-                <div class="party-organizer--label font-yellow">
+            <div class="party-component__organizer">
+                <div class=".party-component__organizer-label font-yellow">
                     Organizator:
                 </div>
-                <div class="party-organizer--name_stars">
-                    <div class="party-organizer--name font-red">{{this.organizer}}</div>
-                    <img src="/assets/images/4-gwiazdki.png" alt="score (4 stars)">
+                <div class="party-component__organizer-stars">
+                    <div class="party-component__organizer-name font-red">{{this.organizer}}</div>
+                    <img class="party-component__organizer-image" src="/assets/images/4-gwiazdki.png" alt="score (4 stars)">
                 </div>
             </div>
         </div>
-        <div class="party-buttons">
-            <div class="party-buttons--follow party-button">
+        <div class="party-component__box-button">
+            <div class="party-component__button party-component__button--follow">
                 <i class="fas fa-star"></i> Obserwuj
             </div>
-            <div class="party-buttons--more-info party-button">
+            <div class="party-component__button party-component__button--more-info">
                 <a href="/events/get-event-id/{{this._id}}"><i class="fas fa-info-circle"></i> Więcej info...
                 </a>
             </div>

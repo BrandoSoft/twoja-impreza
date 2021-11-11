@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "compile:sass": " node-sass public/assets/sass/main.scss public/assets/styles/style.css -w"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "handlebars": "^4.5.0",
+    "node-sass": "^6.0.1",
     "nodemon": "^2.0.14"
   }
 }
