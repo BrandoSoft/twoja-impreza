@@ -137,6 +137,7 @@ body {
   .main-section__content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     flex: 1;
     margin: 10rem 1rem 10rem 1rem;
     border-radius: 5px; }
@@ -187,7 +188,8 @@ body {
   flex-direction: column;
   flex: 1;
   background-color: #fff;
-  padding: .5rem .5rem 0 .5rem; }
+  padding: .5rem .5rem 0 .5rem;
+  max-width: 37rem; }
   .party-component__main {
     background: #45d9d7;
     background: linear-gradient(270deg, #45d9d7 0%, #99fef0 100%);
