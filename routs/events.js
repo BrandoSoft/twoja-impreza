@@ -18,7 +18,7 @@ connectDataBase();
 
 eventsRouter
     .get('/add', (req, res) => {
-        if (verifyAccount(req.cookies.yourPartyToken)){
+        if (verifyAccount(req.cookies.yourPartyToken)) {
             //ZALOGOWANY
             res.render('sites/add/add', {})
         } else {
@@ -28,7 +28,7 @@ eventsRouter
     })
 
     .get('/added', (req, res) => {
-        if (verifyAccount(req.cookies.yourPartyToken)){
+        if (verifyAccount(req.cookies.yourPartyToken)) {
             //ZALOGOWANY
             res.render('sites/add/added', {})
         } else {
@@ -38,12 +38,14 @@ eventsRouter
     })
 
     //Do metod poniżej nie dodawałem weryfikacji
-   .post('/add-to-db', urlencodedParser, (req, res) => {
-    const Data = new PartyList(req.body)
-    Data.save()
-       .then(()=>{ res.render('sites/add/added', req.body)})
-        .catch(error => console.log(error))
-   })
+    .post('/add-to-db', urlencodedParser, (req, res) => {
+        const Data = new PartyList(req.body)
+        Data.save()
+            .then(() => {
+                res.render('sites/add/added', req.body)
+            })
+            .catch(error => console.log(error))
+    })
 
     .post('/add-to-db', urlencodedParser, (req, res) => {
         const Data = new PartyList(req.body)
@@ -63,31 +65,37 @@ eventsRouter
                     data: data
                 })
             })
-            })
+    })
 
 
     .get('/add-follower/:id', (req, res) => {
+        PartyList.updateOne(
+            {_id: req.params.id},
+            {$addToSet: {followers: jwt.decode(req.cookies.yourPartyToken).idHash}},
+        ).then(data => console.log(data))
+            .catch(err => console.log(err))
+        res.redirect('/')
 
-        console.log(req.params.id)
+    })
+    .get('/remove-follower/:id', (req, res) => {
+        PartyList.updateOne(
+            {_id: req.params.id},
+            {$pull: {followers: jwt.decode(req.cookies.yourPartyToken).idHash}},
+        ).then(data => console.log(data))
+            .catch(err => console.log(err))
+        res.redirect('/user/events')
 
-    PartyList.updateOne(
-        { _id: req.params.id },
-        { $addToSet: { followers: jwt.decode(req.cookies.yourPartyToken).idHash } },
-    ).then(data=> console.log(data))
-        .catch(err=> console.log(err))
-    res.redirect('/')
-
-})
+    })
 
     .get('/get-events-by-id/:id', (req, res) => {
-    PartyList.find({
-        _id: req.params.id,
-    })
-        .then(data => {
-            res.send(data)
+        PartyList.find({
+            _id: req.params.id,
+        })
+            .then(data => {
+                res.send(data)
             })
 
-})
+    })
 
     .post('/get-events-by-date', (req, res) => {
         console.log(req.body)

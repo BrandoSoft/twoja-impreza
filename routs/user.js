@@ -65,6 +65,7 @@ userRouter
                     res.render('sites/user-party/user-party', {
                         info: data,
                         follow: false,
+                        unfollow: true,
                     })
                 })
                 .catch(error => console.error(error))
