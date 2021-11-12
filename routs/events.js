@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const PartyList = require("../models/PartyList");
+const jwt = require("jsonwebtoken");
 
 const {verifyAccount} = require("../utils/auth-utils");
 
@@ -66,10 +67,12 @@ eventsRouter
 
 
     .get('/add-follower/:id', (req, res) => {
-    console.log(req.params.id)
+
+        console.log(req.params.id)
+
     PartyList.updateOne(
         { _id: req.params.id },
-        { $addToSet: { followers: 'fea20954992bd5b838fe39af1dd456616afd34c2446525a6a2d6c94dfce60915190638...' } },
+        { $addToSet: { followers: jwt.decode(req.cookies.yourPartyToken).idHash } },
     ).then(data=> console.log(data))
         .catch(err=> console.log(err))
     res.redirect('/')

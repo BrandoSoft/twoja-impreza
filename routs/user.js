@@ -56,16 +56,9 @@ userRouter
         if (verifyAccount(req.cookies.yourPartyToken)) {
             //ZALOGOWANY
 
-            const test = (req) => {
-                const tokenValue = jwt.decode(req.cookies.yourPartyToken);
-                return tokenValue.idHash
-            }
-            console.log(test(req))
-
-            console.log(jwt.decode(req.cookies.yourPartyToken))
 
             PartyList.find(
-                {followers: 'fea20954992bd5b838fe39af1dd456616afd34c2446525a6a2d6c94dfce60915190638...' }
+                {followers: jwt.decode(req.cookies.yourPartyToken).idHash }
             ).lean()
                 .sort({date: 1})
                 .then(data => {

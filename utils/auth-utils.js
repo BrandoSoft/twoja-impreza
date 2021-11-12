@@ -12,16 +12,16 @@ function setHashId(idUser, login) {
         .digest('hex')
 }
 
-const getToken = (req, res) => {
-    const user = users.find(user => user.login === req.body.login && user.password === req.body.password);
-    if (!user) {
-        return res.sendStatus(401);
-    }
-    const returnUser = {login: user.login, idHash: user.idHash}
-    const token = jwt.sign(returnUser, access_token);
-    res.cookie("yourPartyToken", token);
-    res.sendStatus(200);
-}
+// const getToken = (req, res) => {
+//     const user = users.find(user => user.login === req.body.login && user.password === req.body.password);
+//     if (!user) {
+//         return res.sendStatus(401);
+//     }
+//     const returnUser = {login: user.login, idHash: user.idHash}
+//     const token = jwt.sign(returnUser, access_token);
+//     res.cookie("yourPartyToken", token);
+//     res.sendStatus(200);
+// }
 
 const createAccount = (req, res) => {
     const id = uuidv4();
@@ -53,10 +53,12 @@ const checkUserInDB = (req, res, url) => {
     })
         .lean()
         .then((data) => {
-                if (data.length < 1) {
+            if (data.length < 1) {
                     res.render('sites/user-account/login-fail');
                 } else {
-                    const returnUser = {login: data.login, idHash: data.idHash}
+                    const {login, idHash} = data[0];
+                    const returnUser = {login, idHash}
+
                     const token = jwt.sign(returnUser, access_token);
                     res.cookie("yourPartyToken", token);
                     res.redirect(url)
@@ -93,7 +95,7 @@ const logoutUser = (req, res) => {
 }
 
 module.exports = {
-    getToken,
+    // getToken,
     verifyAccount,
     createAccount,
     checkUserInDB,

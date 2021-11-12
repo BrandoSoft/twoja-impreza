@@ -14,14 +14,12 @@ homeRouter
             findAndRender(req, res, {
                 category: CATEGORY,
                 data: {},
-                formatData: formatter(req.body),
             });
         } else {
             //NIEZALOGOWANY
             findAndRender(req, res, {
                 category: CATEGORY,
                 data: {},
-                formatData: formatter(req.body),
             });
         }
     })
