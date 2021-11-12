@@ -1,5 +1,5 @@
 const express = require('express');
-const {verifyAccount, createAccount, checkUserInDB, logoutUser, verifyLoginAndMail} = require("./auth-utils");
+const {verifyAccount, createAccount, checkUserInDB, logoutUser, verifyLoginAndMail} = require("../utils/auth-utils");
 
 const userRouter = express.Router();
 
