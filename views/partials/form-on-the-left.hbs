@@ -1,0 +1,24 @@
+<form action="/home" method="post">
+    <div id="calendar">
+        {{>range-picker-calendar}}
+    </div>
+    <div id="search-parameters">
+        <label for="search-input">Poszukiwana fraza</label>
+        <input type="text" id="search-input" name="searchParameters">
+    </div>
+    <div id="age-categories">
+        <label for="first-age-input">Wiek od:</label>
+        <input type="number" id="first-age-input" name="firstAge" min="1" max="99">
+        <label for="second-age-input">Wiek do:</label>
+        <input type="number" id="second-age-input" name="secondAge" min="1" max="99">
+    </div>
+    <div id="checkbox-list">
+        {{#each category}}
+            <div class="checkbox-category">
+                <label for="scales">{{this}}</label>
+                <input type="checkbox" id="scales" name="scales">
+            </div>
+        {{/each}}
+    </div>
+    <button type="submit">Wyślij</button>
+</form>

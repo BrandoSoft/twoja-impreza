@@ -14,10 +14,12 @@ function connectDataBase(){
 }
 
 function findAndRender(req, res, data){
+    const { category } = data;
     PartyList.find(data).lean()
         .then(data => {
             res.render('sites/home/home', {
                 info: data,
+                category,
             })
         })
         .catch(error => console.error(error))
