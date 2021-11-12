@@ -35,7 +35,7 @@ homeRouter
             });
         } else {
             //NIEZALOGOWANY
-            console.log(formatter(req.body)) //@TODO To wypisuje ten nowy format wyszukiwania
+            // console.log(formatter(req.body)) //@TODO To wypisuje ten nowy format wyszukiwania
             findAndRender(req, res, {
                 category: CATEGORY, //służy do formatowania checklisty -> wszystkie kategorie są w data/checkboxList.js
                 data: {}, // To jes to co zrobił Artur -> służy chyba do renderowania
