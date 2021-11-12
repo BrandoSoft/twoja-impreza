@@ -123,60 +123,78 @@
 .main-section
 {
   display: flex;
-  align-items: flex-start;
+  justify-content: space-between;
   background-image: url("/assets/images/main-background.jpg");
   background-size: cover;
+  border-radius: 5px;
+
+  @media(max-width: $tablet)
+  {
+    flex-direction: column;
+  }
 
 
-  //probably to remove
+
+
   &__aside
   {
     display: flex;
-    min-height: 1200px;
-    width: 21%;
+    flex: 0 0 20%;
     background-color: #fff;
     margin: 10rem 1rem 10rem 3rem;
     border-radius: 5px;
+    @media(max-width: $tablet)
+    {
+      margin:2rem 1rem 1rem 1rem;
+    }
   }
 
-  //probably to remove
+
   &__content
   {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 75%;
+    flex:1;
     margin: 10rem 1rem 10rem 1rem;
     border-radius: 5px;
+
+    @media(max-width: $tablet)
+    {
+      margin:1rem 1rem 2rem 1rem;
+    }
+
+    @media (max-width: $min-mobile)
+    {
+      flex-direction: column;
+
+    }
   }
 }
 
 .footer
 {
-  display: flex;
-  width: 100%;
-  height: 90px;
-  align-items: center;
-  justify-content: center;
   border-top: 8px solid white;
   background: rgb(254, 148, 0);
   background: linear-gradient(180deg, rgba(254, 148, 0, 1) 0%, rgba(246, 38, 0, 1) 100%);
+  padding:2rem;
+  text-align: center;
 
   &__info
   {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 2.8rem;
+    @media(max-width: $tablet)
+    {
+      font-size: 2rem;
+    }
+    @media(max-width: $min-mobile)
+    {
+      font-size: 1.5rem;
+    }
   }
 
   &__link
   {
-    display: flex;
-    text-transform: uppercase;
     text-decoration: none;
-    width: 100%;
-    font-size: 2.8rem;
   }
 }
 

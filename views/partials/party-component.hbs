@@ -3,47 +3,46 @@
     <div class="party-component">
         <div class="party-component__main">
             <div class="party-component__overview">
-                <div class="party-component__name font-yellow">
+                <div class="party-component__name">
                     {{this.name}}
                 </div>
-                <div class="party-component__date font-white">
+                <div class="party-component__date">
                     ({{ dateFixer this.date}})
                 </div>
             </div>
             <div class="party-component__info">
                 <div class="party-component__info--start">
-                    Start: <span class="font-white"> godz: {{this.time}}</span>
+                    Start: <span class="font-white"> godz: {{this.time}}dfgdfgfdgfdg</span>
                 </div>
                 <div class="party-component__info--place">
-                    Miejsce: <span class="font-white"> {{this.place}}</span>
+                    Miejsce: <span class="font-white"> {{this.place}}fdgdfgdfgdfgg</span>
                 </div>
             </div>
             <div class="party-component__box-image">
                 <img src="/assets/images/party-img.jpg" class="party-component__image" alt="image of party">
             </div>
             <div class="party-component__organizer">
-                <div class=".party-component__organizer-label font-yellow">
+                <div class="party-component__organizer-label font-yellow">
                     Organizator:
                 </div>
                 <div class="party-component__organizer-stars">
-                    <div class="party-component__organizer-name font-red">{{this.organizer}}</div>
-                    <img class="party-component__organizer-image" src="/assets/images/4-gwiazdki.png" alt="score (4 stars)">
+                    <div class="party-component__organizer-name font-red">{{this.organizer}}dfgdfgdfgdfgfdg</div>
+                    <img class="party-component__organizer-image" src="/assets/images/4-gwiazdki.png"
+                         alt="score (4 stars)">
                 </div>
             </div>
         </div>
         <div class="party-component__box-button">
-            {{#if follow}}
-            <div class="party-component__button party-component__button--follow">
-                <a href="/events/add-follower/{{this._id}}"><i class="fas fa-star"></i> Obserwuj</a>
+      {{#if follow}}
+            <a href="/events/add-follower/{{this._id}}" class="party-component__button party-component__button--follow"> <i class="fas fa-lg fa-star"></i>
+                Obserwuj </a>
+       {{/if}}
+            <a href="/events/get-event-id/{{this._id}}"
+               class="party-component__button party-component__button--more-info"><i class="fas fa-lg fa-info-circle"></i>
+                Więcej info
+            </a>
             </div>
-            {{/if}}
-            <div class="party-component__button party-component__button--more-info">
-                <a href="/events/get-event-id/{{this._id}}"><i class="fas fa-info-circle"></i> Więcej info...
-                </a>
-            </div>
-        </div>
     </div>
 
 {{/each}}
 
-{{log info}}
