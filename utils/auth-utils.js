@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const {access_token} = require("../config");
-const {users} = require("../data/imitationDatabase")
 const {randomBytes, createHmac} = require("crypto");
 const RegisterUser = require("../models/RegisterUser");
 const {v4: uuidv4} = require('uuid');

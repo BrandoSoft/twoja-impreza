@@ -1,5 +1,5 @@
 const express = require('express');
-const {verifyAccount} = require("./auth-utils");
+const {verifyAccount} = require("../utils/auth-utils");
 
 const archiveRouter = express.Router();
 
