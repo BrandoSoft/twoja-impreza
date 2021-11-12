@@ -21,6 +21,7 @@ function findAndRender(req, res, options){
         .then(data => {
             res.render('sites/home/home', {
                 info: data,
+                follow: true,
                 category,
             })
         })

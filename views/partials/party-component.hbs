@@ -33,18 +33,16 @@
             </div>
         </div>
         <div class="party-component__box-button">
-
-            <a href="#" class="party-component__button party-component__button--follow"> <i class="fas fa-lg fa-star"></i>
+      {{#if follow}}
+            <a href="/events/add-follower/{{this._id}}" class="party-component__button party-component__button--follow"> <i class="fas fa-lg fa-star"></i>
                 Obserwuj </a>
-
+       {{/if}}
             <a href="/events/get-event-id/{{this._id}}"
                class="party-component__button party-component__button--more-info"><i class="fas fa-lg fa-info-circle"></i>
                 Więcej info
             </a>
-
-        </div>
+            </div>
     </div>
 
 {{/each}}
 
-{{log info}}

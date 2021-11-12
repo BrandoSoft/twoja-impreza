@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require("jsonwebtoken");
 
 
 const PartyList = require("../models/PartyList");
@@ -24,10 +25,9 @@ userRouter
 
             info.then(function (result) {
                 if (!(result.length < 1)) {
-                    console.log('pierwszy if', result)
+
                     res.send('jest juz uzytkownik')
                 } else {
-                    console.log('2 if', result)
                     createAccount(req, res)
                 }
             })
@@ -55,6 +55,15 @@ userRouter
     .get('/events', (req, res) => {
         if (verifyAccount(req.cookies.yourPartyToken)) {
             //ZALOGOWANY
+
+            const test = (req) => {
+                const tokenValue = jwt.decode(req.cookies.yourPartyToken);
+                return tokenValue.idHash
+            }
+            console.log(test(req))
+
+            console.log(jwt.decode(req.cookies.yourPartyToken))
+
             PartyList.find(
                 {followers: 'fea20954992bd5b838fe39af1dd456616afd34c2446525a6a2d6c94dfce60915190638...' }
             ).lean()
@@ -62,15 +71,11 @@ userRouter
                 .then(data => {
                     res.render('sites/user-party/user-party', {
                         info: data,
+                        follow: false,
                     })
                 })
                 .catch(error => console.error(error))
-
-
-        // followers: 'fea20954992bd5b838fe39af1dd456616afd34c2446525a6a2d6c94dfce60915190638...' } }
-
-        // res.render('sites/user-party/user-party', {})
-    }
+            }
 else
 {
     //NIEZALOGOWANY
