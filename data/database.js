@@ -22,6 +22,7 @@ function findAndRender(req, res, options){
             res.render('sites/home/home', {
                 info: data,
                 follow: true,
+                unfollow: false,
                 category,
             })
         })
