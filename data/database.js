@@ -13,9 +13,11 @@ function connectDataBase(){
         .catch(err => console.error(err));
 }
 
+
 function findAndRender(req, res, options){
     const { category, data } = options;
-    PartyList.find(data).lean()
+    PartyList.find(data).lean().sort({date: 1})
+
         .then(data => {
             res.render('sites/home/home', {
                 info: data,
