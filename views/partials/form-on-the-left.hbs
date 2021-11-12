@@ -15,8 +15,8 @@
     <div id="checkbox-list">
         {{#each category}}
             <div class="checkbox-category">
-                <label for="scales">{{this}}</label>
-                <input type="checkbox" id="scales" name="scales">
+                <label for="{{this}}">{{this}}</label>
+                <input type="checkbox" id="{{this}}" name="{{this}}">
             </div>
         {{/each}}
     </div>

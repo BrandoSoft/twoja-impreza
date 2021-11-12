@@ -1,6 +1,6 @@
 const express = require('express');
 
-const {verifyAccount} = require("./auth-utils");
+const {verifyAccount} = require("../utils/auth-utils");
 const {findAndRender} = require("../data/database");
 const {CATEGORY} = require("../data/checkboxList");
 const homeRouter = express.Router();
@@ -12,11 +12,13 @@ homeRouter
             //ZALOGOWANY
             findAndRender(req, res, {
                 category: CATEGORY,
+                data: {},
             });
         } else {
             //NIEZALOGOWANY
             findAndRender(req, res, {
                 category: CATEGORY,
+                data: {},
             });
         }
     })
@@ -26,11 +28,13 @@ homeRouter
             //ZALOGOWANY
             findAndRender(req, res, {
                 category: CATEGORY,
+                data: {},
             });
         } else {
             //NIEZALOGOWANY
             findAndRender(req, res, {
                 category: CATEGORY,
+                data: {},
             });
         }
     })

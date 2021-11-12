@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const PartyList = require("../models/PartyList");
 
-const {verifyAccount} = require("./auth-utils");
+const {verifyAccount} = require("../utils/auth-utils");
 
 
 const {connectDataBase} = require('../data/database')
