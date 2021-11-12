@@ -33,7 +33,7 @@
         </div>
         <div class="party-component__box-button">
             <div class="party-component__button party-component__button--follow">
-                <i class="fas fa-star"></i> Obserwuj
+                <a href="/events/add-follower/{{this._id}}"><i class="fas fa-star"></i> Obserwuj</a>
             </div>
             <div class="party-component__button party-component__button--more-info">
                 <a href="/events/get-event-id/{{this._id}}"><i class="fas fa-info-circle"></i> Więcej info...
@@ -43,3 +43,5 @@
     </div>
 
 {{/each}}
+
+{{log info}}
