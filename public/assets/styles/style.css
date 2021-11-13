@@ -29,6 +29,18 @@ body {
   background-image: url("/assets/images/header-background.jpg");
   background-size: cover;
   background-repeat: no-repeat; }
+  @media (max-width: 1200px) {
+    .header {
+      height: 75%; } }
+  @media (max-width: 992px) {
+    .header {
+      height: 70%; } }
+  @media (max-width: 768px) {
+    .header {
+      height: 55%; } }
+  @media (max-width: 480px) {
+    .header {
+      height: 40%; } }
 
 .header-bar {
   display: flex;
@@ -41,6 +53,24 @@ body {
   border-bottom: 8px solid white;
   background: #fe9400;
   background: linear-gradient(180deg, #fe9400 0%, #f62600 100%); }
+  @media (max-width: 1200px) {
+    .header-bar {
+      height: 80px; } }
+  @media (max-width: 992px) {
+    .header-bar {
+      height: 60px;
+      border-top: 5px solid white;
+      border-bottom: 5px solid white; } }
+  @media (max-width: 768px) {
+    .header-bar {
+      height: 40px;
+      border-top: 3px solid white;
+      border-bottom: 3px solid white; } }
+  @media (max-width: 480px) {
+    .header-bar {
+      height: 30px;
+      border-top: 2px solid white;
+      border-bottom: 2px solid white; } }
   .header-bar__title {
     display: block;
     letter-spacing: 3px;
@@ -48,6 +78,15 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     color: #fff; }
+    @media (max-width: 992px) {
+      .header-bar__title {
+        font-size: 3rem; } }
+    @media (max-width: 768px) {
+      .header-bar__title {
+        font-size: 2.8rem; } }
+    @media (max-width: 480px) {
+      .header-bar__title {
+        font-size: 2rem; } }
   .header-bar__arrow {
     height: 150%; }
 
@@ -60,15 +99,16 @@ body {
   background: #e54325;
   background: linear-gradient(90deg, #e54325 0%, #ff9d00 100%);
   border-bottom: 8px solid #fff; }
-  @media (max-width: 768px) and (orientation: portrait) {
+  @media (max-width: 480px) {
     .main-navigation {
       position: fixed;
       top: 0;
       left: -230px;
       width: 230px;
       height: 100%;
-      z-index: 3; } }
-  @media (max-width: 825px) and (orientation: landscape) {
+      z-index: 3;
+      border-bottom: none; } }
+  @media (max-width: 992px) {
     .main-navigation {
       border-bottom: none; } }
   .main-navigation__list {
@@ -84,27 +124,27 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     color: #fff; }
-    @media (max-width: 541px) {
+    @media (max-width: 1200px) {
       .main-navigation__link {
         font-size: 2.5rem;
         padding: 2rem; } }
-    @media (min-width: 542px) and (max-width: 1024px) {
+    @media (max-width: 992px) {
       .main-navigation__link {
-        font-size: 2.4rem;
-        height: 80px;
-        line-height: 80px;
-        padding: 0rem 2rem; } }
-    @media (max-width: 668px) and (orientation: landscape) {
+        font-size: 1.9rem;
+        height: 40px;
+        line-height: 40px;
+        padding: 0rem 1.7rem; } }
+    @media (max-width: 768px) {
       .main-navigation__link {
         font-size: 1.3rem;
-        line-height: 30px;
+        line-height: 35px;
         padding: 0rem 1.2rem;
-        height: 30px; } }
-    @media (min-width: 669px) and (max-width: 825px) and (orientation: landscape) {
+        height: 35px; } }
+    @media (max-width: 480px) {
       .main-navigation__link {
-        font-size: 1.3rem;
+        font-size: 2.8rem;
         height: 30px;
-        padding: 0rem 2rem;
+        padding: 2.2rem 2.2rem;
         line-height: 30px; } }
 
 .logo {
@@ -115,6 +155,19 @@ body {
   padding-top: 2rem; }
   .logo__img {
     height: 330px; }
+    @media (max-width: 1200px) {
+      .logo__img {
+        width: 90%;
+        height: 11%; } }
+    @media (max-width: 992px) {
+      .logo__img {
+        width: 300px; } }
+    @media (max-width: 768px) {
+      .logo__img {
+        width: 250px; } }
+    @media (max-width: 480px) {
+      .logo__img {
+        width: 200px; } }
 
 .main-section {
   display: flex;
@@ -171,11 +224,11 @@ body {
   top: 20px;
   right: 20px;
   display: none; }
-  @media (max-width: 768px) and (orientation: portrait) {
+  @media (max-width: 480px) {
     .hamburger {
       display: block; } }
 
-@media (max-width: 768px) and (orientation: portrait) {
+@media (max-width: 480px) {
   .main-navigation--small {
     left: 0;
     margin-top: 0;
