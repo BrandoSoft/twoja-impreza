@@ -9,6 +9,20 @@
   background-image: url("/assets/images/header-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  @media(max-width: $laptop){
+    height: 75%
+  }
+  @media(max-width: $tablet){
+    height: 70%;
+  }
+  @media(max-width: $mobile){
+    height: 55%;
+  }
+  @media(max-width: $min-mobile){
+    height: 40%;
+  }
+
+
 }
 
 // header bar
@@ -23,6 +37,24 @@
   border-bottom: 8px solid white;
   background: rgb(254, 148, 0);
   background: linear-gradient(180deg, rgba(254, 148, 0, 1) 0%, rgba(246, 38, 0, 1) 100%);
+  @media(max-width: $laptop){
+    height: 80px;
+  }
+  @media(max-width: $tablet){
+    height: 60px;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+  }
+  @media(max-width: $mobile){
+    height: 40px;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+  }
+  @media(max-width: $min-mobile){
+    height: 30px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+  }
 
   &__title {
     display: block;
@@ -31,7 +63,18 @@
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
+    @media(max-width: $tablet){
+      font-size: 3rem;
+    }
+    @media(max-width: $mobile){
+      font-size: 2.8rem;
+    }
+    @media (max-width: $min-mobile) {
+      font-size: 2rem;
+
+    }
   }
+
 
   &__arrow {
     height: 150%;
@@ -49,19 +92,18 @@
   background: rgb(229, 67, 37);
   background: linear-gradient(90deg, rgba(229, 67, 37, 1) 0%, rgba(255, 157, 0, 1) 100%);
   border-bottom: 8px solid #fff;
-  @media (max-width: 768px) and (orientation: portrait){
+  @media (max-width: $min-mobile){
     position: fixed;
     top: 0;
     left: -230px;
     width: 230px;
     height: 100%;
     z-index: 3;
-
-  }
-  @media (max-width: 825px) and (orientation: landscape){
     border-bottom: none;
   }
-
+  @media (max-width:$tablet){
+    border-bottom: none;
+  }
 
   &__list {
     list-style: none;
@@ -80,26 +122,27 @@
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
-    @media(max-width: 541px){
+    @media(max-width: $laptop){
       font-size: 2.5rem;
       padding: 2rem;
     }
-    @media(min-width:542px) and (max-width: 1024px){
-      font-size: 2.4rem;
-      height: 80px;
-      line-height: 80px;
-      padding: 0rem 2rem;
+    @media(max-width: $tablet){
+      font-size: 1.9rem;
+      height: 40px;
+      line-height: 40px;
+      padding: 0rem 1.7rem;
     }
-    @media(max-width: 668px) and (orientation: landscape){
+    @media(max-width: $mobile) {
       font-size: 1.3rem;
-      line-height: 30px;
+      line-height: 35px;
       padding: 0rem 1.2rem;
-      height: 30px;
+      height: 35px;
+
     }
-    @media(min-width: 669px) and (max-width: 825px) and (orientation: landscape){
-      font-size: 1.3rem;
+    @media(max-width: $min-mobile){
+      font-size: 2.8rem;
       height: 30px;
-      padding: 0rem 2rem;
+      padding: 2.2rem 2.2rem;
       line-height: 30px;
     }
   }
@@ -113,9 +156,26 @@
   width: 100%;
   padding-top: 2rem;
 
+
   &__img
   {
     height: 330px;
+    @media(max-width: $laptop){
+
+      width:90%;
+      height: 11%;
+    }
+    @media(max-width: $tablet){
+      width: 300px;
+    }
+    @media(max-width: $mobile){
+      width: 250px;
+    }
+    @media (max-width: $min-mobile) {
+      width: 200px;
+
+    }
+
   }
 }
 
@@ -128,9 +188,11 @@
   background-size: cover;
   border-radius: 5px;
 
+
   @media(max-width: $tablet)
   {
     flex-direction: column;
+
   }
 
 
@@ -207,13 +269,13 @@
   top:20px;
   right:20px;
   display: none;
-  @media(max-width: 768px) and (orientation: portrait){
+  @media(max-width: $min-mobile) {
     display: block;
   }
 }
 
 .main-navigation--small{
-  @media (max-width: 768px) and (orientation: portrait){
+  @media (max-width: $min-mobile){
     left: 0;
     margin-top: 0;
     height: 100%;
