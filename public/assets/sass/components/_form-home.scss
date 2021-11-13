@@ -1,0 +1,130 @@
+.form-home {
+  font-size: 1.3rem;
+  padding: 1rem;
+
+  &__searchinput {
+    width: 100%;
+    display: block;
+    padding: 1rem;
+
+    &:focus
+    {
+      outline-color: $primary-color;
+    }
+
+  }
+
+  &__searchlabel {
+    display: block;
+    margin-top:2rem;
+  }
+
+  &__agecategories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .5rem 0;
+  }
+
+  &__agelabel {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  &__ageinput {
+    padding: .5rem;
+    margin-top: 1rem;
+
+    &:focus
+    {
+      outline-color: $primary-color;
+    }
+  }
+
+  &__checboxcontainer {
+    margin: 1.5rem 0;
+    display: flex;
+    max-width: 35rem;
+    flex-direction:column;
+    flex-wrap: wrap;
+    @media(max-width: $tablet)
+    {
+      flex-direction: row;
+    }
+
+
+  }
+
+  &__checkbox-category {
+    flex: 0 0 50%;
+    margin: .5rem 0;
+  }
+
+  &__checkbox {
+    opacity: 0;
+
+    &:checked + label::before {
+      outline: 2px solid $primary-color;
+    }
+
+    &:checked + label::after {
+      content: "";
+      background-image: url("/assets/images/Very-Basic-Checkmark-icon.png");
+      background-size: contain;
+      background-color: $primary-color;
+
+    }
+
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 3rem;
+    display: inline-block;
+    cursor: pointer;
+    color: #666;
+    line-height: 2.5rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.8rem;
+      height: 1.8rem;
+      outline: 2px solid black;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+
+  &__submit
+  {
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: 2px solid black;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: all .5s;
+    cursor:pointer;
+
+    &:hover
+    {
+      background: $primary-color;
+      transform: scale(1.03);
+    }
+  }
+
+
+
+
+}

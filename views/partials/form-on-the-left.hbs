@@ -1,24 +1,67 @@
-<form action="/home" method="post">
+<form action="/home" method="post" class="form-home">
     <div id="calendar">
         {{>range-picker-calendar}}
     </div>
-    <div id="search-parameters">
-        <label for="search-input">Poszukiwana fraza</label>
-        <input type="text" id="search-input" name="searchParameters">
+        <label class="form-home__searchlabel" for="search-input">Poszukiwana fraza</label>
+        <input type="text" class="form-home__searchinput" id="search-input" name="searchParameters">
+
+    <div id="age-categories" class="form-home__agecategories">
+        <label class="form-home__agelabel" for="first-age-input">Wiek od:</label>
+        <input class="form-home__ageinput" type="number" id="first-age-input" name="firstAge" min="1" max="99">
+        <label class="form-home__agelabel" for="second-age-input">Wiek do:</label>
+        <input class="form-home__ageinput" type="number" id="second-age-input" name="secondAge" min="1" max="99">
     </div>
-    <div id="age-categories">
-        <label for="first-age-input">Wiek od:</label>
-        <input type="number" id="first-age-input" name="firstAge" min="1" max="99">
-        <label for="second-age-input">Wiek do:</label>
-        <input type="number" id="second-age-input" name="secondAge" min="1" max="99">
-    </div>
-    <div id="checkbox-list">
+    <div id="checkbox-list" class="form-home__checboxcontainer">
         {{#each category}}
-            <div class="checkbox-category">
-                <label for="checkbox-{{this}}">{{this}}</label>
-                <input type="checkbox" id="checkbox-{{this}}" name="{{this}}">
+            <div class="form-home__checkbox-category">
+                <input type="checkbox" class="form-home__checkbox" id="checkbox-{{this}}" name="{{this}}">
+                <label class="form-home__label" for="checkbox-{{this}}">{{this}}</label>
             </div>
         {{/each}}
+
+
+        <div class="form-home__checkbox-category">
+            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
+            <label class="form-home__label" for="checkbox-a">a</label>
+        </div>
+
+        <div class="form-home__checkbox-category">
+            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
+            <label class="form-home__label" for="checkbox-a">a</label>
+        </div>
+
+        <div class="form-home__checkbox-category">
+            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
+            <label class="form-home__label" for="checkbox-a">a</label>
+        </div>
+
+        <div class="form-home__checkbox-category">
+            <input type="checkbox" class="form-home__checkbox" id="checkbox-aaaaaaa" name="aaaaaaa">
+            <label class="form-home__label" for="checkbox-aaaaaaa">Charytatywnie</label>
+        </div>
+
+        <div class="form-home__checkbox-category">
+            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
+            <label class="form-home__label" for="checkbox-a">a</label>
+        </div>
+
+        <div class="form-home__checkbox-category">
+            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
+            <label class="form-home__label" for="checkbox-a">a</label>
+        </div>
+
+        <div class="form-home__checkbox-category">
+            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
+            <label class="form-home__label" for="checkbox-a">a</label>
+        </div>
+
+
+
+
+
+
+
+
     </div>
-    <button type="submit">Wyślij</button>
+    <button class="form-home__submit" type="submit">Wyślij</button>
 </form>

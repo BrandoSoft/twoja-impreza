@@ -1,3 +1,86 @@
+.form-home {
+  font-size: 1.3rem;
+  padding: 1rem; }
+  .form-home__searchinput {
+    width: 100%;
+    display: block;
+    padding: 1rem; }
+    .form-home__searchinput:focus {
+      outline-color: #fe9400; }
+  .form-home__searchlabel {
+    display: block;
+    margin-top: 2rem; }
+  .form-home__agecategories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .5rem 0; }
+  .form-home__agelabel {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem; }
+  .form-home__ageinput {
+    padding: .5rem;
+    margin-top: 1rem; }
+    .form-home__ageinput:focus {
+      outline-color: #fe9400; }
+  .form-home__checboxcontainer {
+    margin: 1.5rem 0;
+    display: flex;
+    max-width: 35rem;
+    flex-direction: column;
+    flex-wrap: wrap; }
+    @media (max-width: 992px) {
+      .form-home__checboxcontainer {
+        flex-direction: row; } }
+  .form-home__checkbox-category {
+    flex: 0 0 50%;
+    margin: .5rem 0; }
+  .form-home__checkbox {
+    opacity: 0; }
+    .form-home__checkbox:checked + label::before {
+      outline: 2px solid #fe9400; }
+    .form-home__checkbox:checked + label::after {
+      content: "";
+      background-image: url("/assets/images/Very-Basic-Checkmark-icon.png");
+      background-size: contain;
+      background-color: #fe9400; }
+  .form-home__label {
+    position: relative;
+    padding-left: 3rem;
+    display: inline-block;
+    cursor: pointer;
+    color: #666;
+    line-height: 2.5rem; }
+    .form-home__label::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.8rem;
+      height: 1.8rem;
+      outline: 2px solid black; }
+    .form-home__label::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.8rem;
+      height: 1.8rem; }
+  .form-home__submit {
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: 2px solid black;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: all .5s;
+    cursor: pointer; }
+    .form-home__submit:hover {
+      background: #fe9400;
+      transform: scale(1.03); }
+
 *,
 *::after,
 *::before {
@@ -292,8 +375,8 @@ body {
 
 #calendar {
   font-size: 2rem;
-  color: #008066;
-  display: inline-block; }
+  display: block;
+  text-align: center; }
 
 .font-white {
   color: white; }
@@ -383,7 +466,7 @@ body {
         text-align: center;
         align-items: center;
         color: var(--litepicker-month-header-color);
-        background-color: #d56406 !important; }
+        background-color: #fe9400 !important; }
         .litepicker .container__months .month-item-header div {
           flex: 1; }
           .litepicker .container__months .month-item-header div > .month-item-name {
