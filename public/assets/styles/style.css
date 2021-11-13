@@ -5,8 +5,9 @@
     width: 100%;
     display: block;
     padding: 1rem; }
-    .form-home__searchinput:focus {
-      outline-color: #fe9400; }
+    .form-home__searchinput:focus, .form-home__searchinput:active {
+      outline: 2px solid #fe9400;
+      border: none; }
   .form-home__searchlabel {
     display: block;
     margin-top: 2rem; }
@@ -21,9 +22,11 @@
     margin-left: 1rem; }
   .form-home__ageinput {
     padding: .5rem;
-    margin-top: 1rem; }
-    .form-home__ageinput:focus {
-      outline-color: #fe9400; }
+    margin-top: 1rem;
+    max-width: 8rem; }
+    .form-home__ageinput:focus, .form-home__ageinput:active {
+      outline: 2px solid #fe9400;
+      border: none; }
   .form-home__checboxcontainer {
     margin: 1.5rem 0;
     display: flex;
