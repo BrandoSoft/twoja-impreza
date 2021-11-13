@@ -7,7 +7,18 @@
   flex:1;
   background-color: #fff;
   padding:.5rem .5rem 0 .5rem;
-  max-width: 37rem;
+  max-width: 40rem;
+  margin:.2rem;
+  font-size: 1.6rem;
+  @media(max-width: $mobile)
+  {
+    font-size: 1.3rem
+  }
+  @media(max-width: $tablet)
+  {
+    font-size: 1.4rem
+  }
+
 
 
 
@@ -22,7 +33,6 @@
     display: flex;
     align-items: center;
     text-transform: capitalize;
-    font-size: 2rem;
   }
 
   &__name {
@@ -38,16 +48,15 @@
   &__info {
     display: flex;
     padding: .5rem;
-    align-items: center;
+    flex-direction: column;
     color: #E83D25;
-    font-size: 1.5rem;
     font-weight: bold;
-    word-break: break-word;
+    //word-break: break-word;
   }
 
   &__info--start,
   &__info--place {
-    padding-right: 1rem;
+    padding: .2rem;
   }
 
   &__box-image {
@@ -63,32 +72,24 @@
   &__organizer {
     display: flex;
     padding-bottom: 1rem;
-    word-break: break-word;
+    align-items: center;
+    //word-break: break-word;
 
   }
 
   &__organizer-label {
     padding: .5rem;
-    font-size: 1.5rem;
     align-self: center;
     font-weight: bold;
-    @media (max-width: $tablet)
-    {
-      font-size: 1.3rem
-    }
+    margin-right: 1rem;
   }
 
   &__organizer-stars {
-    margin-left: 1rem;
   }
 
   &__organizer-name {
-    font-size: 2rem;
     font-weight: bold;
-    @media (max-width: $tablet)
-    {
-      font-size: 1.5rem
-    }
+
   }
 
   &__box-button {
@@ -106,10 +107,12 @@
     padding: .5rem 2rem;
     display: flex;
     align-items: center;
-    @media (max-width: $tablet)
+
+    @media(max-width: $tablet)
     {
-      font-size: 1rem;
+      font-size: 1.4rem;
     }
+
 
     &--follow {
       display: flex;
