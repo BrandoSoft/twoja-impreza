@@ -130,8 +130,10 @@ eventsRouter
         PartyList.find(
             {$and: [
                     {date: {
-                        $gte: new Date(req.body.date1.dateInstance),
-                        $lte: new Date(req.body.date2.dateInstance)
+                        // $gte: new Date(req.body.date1.dateInstance),
+                        // $lte: new Date(req.body.date2.dateInstance)
+                            $gte: new Date(2019-11-16),
+                            $lte: new Date(2022-11-16),
                     }},
                     {$and:[
                             { category: categoryArray },
