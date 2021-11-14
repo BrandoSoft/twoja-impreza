@@ -1,12 +1,36 @@
+<div id="calendar">
+    {{>range-picker-calendar}}
+</div>
+
+ 
+
+
+
 <form action="/home" method="post" class="form-home">
-    <div id="calendar">
-        {{>range-picker-calendar}}
+    
+    <div class="form-home__legend-container">
+        <div class="form-home__legend">
+            <div class="form-home__color form-home__color--red"></div>
+            <span class="form-home__legend-info">Dzisiejsza Data</span>
+        </div>
+        <div class="form-home__legend">
+            <div class="form-home__color form-home__color--orange"></div>
+            <span class="form-home__legend-info">Data Obserwowanej Imprezy</span>
+        </div>
+        <div class="form-home__legend">
+            <div class="form-home__color form-home__color--green"></div>
+            <span class="form-home__legend-info">Święto Narodowe lub Kościelne</span>
+        </div>
     </div>
 
-    <p>Parametry Wyszukiwania</p>
+
+    <p class="form-home__description">Parametry Wyszukiwania</p>
     <!--        <label class="form-home__searchlabel" for="search-input">Poszukiwana fraza</label>-->
+    <div class="form-home__searchbox">
     <input type="text" class="form-home__searchinput" id="search-input" name="searchParameters"
            placeholder="Szukaj imprezy">
+    <i class="fas fa-search fa-lg"></i>
+    </div>
 
     <!--    <div id="age-categories" class="form-home__agecategories">-->
     <!--        <label class="form-home__agelabel" for="first-age-input">Wiek od:</label>-->
@@ -15,15 +39,21 @@
     <!--        <input class="form-home__ageinput" type="number" id="second-age-input" name="secondAge" min="1" max="99">-->
     <!--    </div>-->
 
-    <div id="checkbox-list" class="form-home__checboxcontainer">
-        <p>Kategorie Wiek:</p>
+    <p class="form-home__description">Kategorie Wiek:</p>
+
+
+    <div class="form-home__checboxcontainer">
         {{#each age}}
             <div class="form-home__checkbox-category">
                 <input type="checkbox" class="form-home__checkbox" id="checkbox-{{this}}" name="{{this}}">
                 <label class="form-home__label" for="checkbox-{{this}}">{{this}}</label>
             </div>
         {{/each}}
-        <p>Kategorie Typ:</p>
+    </div>
+
+
+    <p class="form-home__description">Kategorie Typ:</p>
+    <div class="form-home__checboxcontainer">
         {{#each category}}
             <div class="form-home__checkbox-category">
                 <input type="checkbox" class="form-home__checkbox" id="checkbox-{{this}}" name="{{this}}">
@@ -31,5 +61,7 @@
             </div>
         {{/each}}
     </div>
+
+
     <button class="form-home__submit" type="submit">Wyślij</button>
 </form>

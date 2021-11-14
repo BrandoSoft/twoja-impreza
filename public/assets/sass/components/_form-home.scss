@@ -2,23 +2,47 @@
   font-size: 1.3rem;
   padding: 1rem;
 
+  label {
+    color: $color-info;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
   &__searchinput {
     width: 100%;
     display: block;
     padding: 1rem;
+    color: $color-info;
 
-    &:focus,
-    &:active
+    &::-webkit-input-placeholder
     {
-      outline:2px solid $primary-color;
-      border: none;
+     color: $color-info;
     }
 
+    &:focus,
+    &:active {
+      border: 2px solid $primary-color;
+      outline: none;
+    }
+
+  }
+  
+  &__searchbox
+  {
+    position: relative;
+  }
+
+  &__description {
+    font-weight: bold;
+    font-size: 2.6rem;
+    margin: 2rem 0;
+    text-align: center;
+    color:rgba(0,0,0,0.7);
   }
 
   &__searchlabel {
     display: block;
-    margin-top:2rem;
+    margin-top: 2rem;
   }
 
   &__agecategories {
@@ -40,10 +64,9 @@
     max-width: 8rem; //important
 
     &:focus,
-    &:active
-    {
-      outline:2px solid $primary-color;
-      border: none;
+    &:active {
+      border: 2px solid $primary-color;
+      outline: none;
     }
   }
 
@@ -51,10 +74,9 @@
     margin: 1.5rem 0;
     display: flex;
     max-width: 35rem;
-    flex-direction:column;
+    flex-direction: column;
     flex-wrap: wrap;
-    @media(max-width: $tablet)
-    {
+    @media(max-width: $tablet) {
       flex-direction: row;
     }
 
@@ -100,6 +122,7 @@
       height: 1.8rem;
       outline: 2px solid black;
     }
+
     &::after {
       content: "";
       position: absolute;
@@ -110,8 +133,7 @@
     }
   }
 
-  &__submit
-  {
+  &__submit {
     display: block;
     width: 100%;
     border: none;
@@ -120,15 +142,55 @@
     padding: 1rem;
     border-radius: 5px;
     transition: all .5s;
-    cursor:pointer;
+    cursor: pointer;
 
-    &:hover
-    {
+    &:hover {
       background: $primary-color;
       transform: scale(1.03);
     }
   }
 
+  &__legend-container {
+      margin:3rem 0;
+  }
+
+  &__legend
+  {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  &__color
+  {
+    display: inline-block;
+    width:3rem;
+    height:3rem;
+    border-radius: 4px;
+    margin-right: 1rem;
+
+    &--red
+    {
+      background-color: $color-info;
+    }
+
+    &--orange
+    {
+      background-color: $primary-color;
+    }
+
+    &--green
+    {
+      background-color: $color-green;
+    }
+  }
+
+  &__legend-info
+  {
+    color:$color-info;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
 
 
