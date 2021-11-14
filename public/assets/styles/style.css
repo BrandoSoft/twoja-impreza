@@ -1,13 +1,28 @@
 .form-home {
   font-size: 1.3rem;
   padding: 1rem; }
+  .form-home label {
+    color: #E83D25;
+    font-weight: bold;
+    text-transform: uppercase; }
   .form-home__searchinput {
     width: 100%;
     display: block;
-    padding: 1rem; }
+    padding: 1rem;
+    color: #E83D25; }
+    .form-home__searchinput::-webkit-input-placeholder {
+      color: #E83D25; }
     .form-home__searchinput:focus, .form-home__searchinput:active {
-      outline: 2px solid #fe9400;
-      border: none; }
+      border: 2px solid #fe9400;
+      outline: none; }
+  .form-home__searchbox {
+    position: relative; }
+  .form-home__description {
+    font-weight: bold;
+    font-size: 2.6rem;
+    margin: 2rem 0;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7); }
   .form-home__searchlabel {
     display: block;
     margin-top: 2rem; }
@@ -25,8 +40,8 @@
     margin-top: 1rem;
     max-width: 8rem; }
     .form-home__ageinput:focus, .form-home__ageinput:active {
-      outline: 2px solid #fe9400;
-      border: none; }
+      border: 2px solid #fe9400;
+      outline: none; }
   .form-home__checboxcontainer {
     margin: 1.5rem 0;
     display: flex;
@@ -83,6 +98,28 @@
     .form-home__submit:hover {
       background: #fe9400;
       transform: scale(1.03); }
+  .form-home__legend-container {
+    margin: 3rem 0; }
+  .form-home__legend {
+    display: flex;
+    align-items: center;
+    margin: 1rem; }
+  .form-home__color {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 4px;
+    margin-right: 1rem; }
+    .form-home__color--red {
+      background-color: #E83D25; }
+    .form-home__color--orange {
+      background-color: #fe9400; }
+    .form-home__color--green {
+      background-color: #1fef34; }
+  .form-home__legend-info {
+    color: #E83D25;
+    font-size: 1.5rem;
+    font-weight: bold; }
 
 *,
 *::after,
@@ -448,6 +485,12 @@ body {
 
 .fa-info-circle {
   margin-right: 1rem; }
+
+.fa-search {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
 
 :root {
   --litepicker-container-months-color-bg: #fff;

@@ -45,13 +45,13 @@ eventsRouter
     //Do metod poniżej nie dodawałem weryfikacji
     .post('/add-to-db', urlencodedParser, (req, res) => {
 
-    //     const Data = new PartyList(req.body)
-    //     Data.save()
-    //         .then(() => {
-    //             res.render('sites/add/added', req.body)
-    //         })
-    //         .catch(error => console.log(error))
-    // })
+      //     const Data = new PartyList(req.body)
+      //     Data.save()
+      //         .then(() => {
+      //             res.render('sites/add/added', req.body)
+      //         })
+      //         .catch(error => console.log(error))
+      })
 
     .get('/get-event-id/:id', (req, res) => {
         PartyList.findOne({
