@@ -28,6 +28,12 @@ const partyListSchema = new mongoose.Schema({
     followers: {
         type: [String],
     },
+    age: {
+        type: [String],
+            },
+    category: {
+        type: [String],
+    },
 
 });
 
