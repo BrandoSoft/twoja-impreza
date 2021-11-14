@@ -15,7 +15,7 @@ function connectDataBase(){
 
 
 function findAndRender(req, res, options){
-    const { category, data } = options;
+    const { category, data, age } = options;
     PartyList.find(data).lean().sort({date: 1})
 
         .then(data => {
@@ -24,6 +24,7 @@ function findAndRender(req, res, options){
                 follow: true,
                 unfollow: false,
                 category,
+                age,
             })
         })
         .catch(error => console.error(error))
