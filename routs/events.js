@@ -10,6 +10,7 @@ const {verifyAccount} = require("../utils/auth-utils");
 
 const {connectDataBase} = require('../data/database')
 const mongoose = require("mongoose");
+const {formatter} = require("../utils/formatter");
 
 const urlencodedParser = bodyParser.urlencoded({extended: false})
 
@@ -23,8 +24,8 @@ eventsRouter
         if (verifyAccount(req.cookies.yourPartyToken)) {
             //ZALOGOWANY
             res.render('sites/add/add', {
-                category:CATEGORY,
-                age:AGE,
+                category: CATEGORY,
+                age: AGE,
             })
         } else {
             //NIEZALOGOWANY
@@ -42,19 +43,33 @@ eventsRouter
         }
     })
 
-    //Do metod poniżej nie dodawałem weryfikacji
+
     .post('/add-to-db', urlencodedParser, (req, res) => {
 
-        const {name, dzieci} = req.body;
-        console.log()
-        console.log(req.body)
-    //     const Data = new PartyList(req.body)
-    //     Data.save()
-    //         .then(() => {
-    //             res.render('sites/add/added', req.body)
-    //         })
-    //         .catch(error => console.log(error))
-        res.render('sites/add/added', req.body)
+        const info = formatter(req.body)
+        const ageArray = [];
+        const infoAge = Object
+            .entries(info.age)
+            .filter(([key, value]) => value === true)
+            .forEach(el => ageArray.push(el[0]))
+
+        const categoryArray = [];
+        const infoCategory = Object
+            .entries(info.checklist).filter(([key, value]) => value === true)
+            .forEach(el => categoryArray.push(el[0]))
+
+        const {name, description, date, time, place, organizer} = req.body;
+
+        const Data = new PartyList({
+            name, description, date, time, place, organizer,
+            age: ageArray,
+            category: categoryArray,
+        })
+        Data.save()
+            .then(() => {
+                res.render('sites/add/added', req.body)
+            })
+            .catch(error => console.log(error))
     })
 
 
@@ -96,6 +111,44 @@ eventsRouter
             .then(data => {
                 res.send(data)
             })
+
+    })
+    .post('/get-events', (req, res) => {
+        console.log(req.body)
+        const info = formatter(req.body)
+        const ageArray = [];
+        const infoAge = Object
+            .entries(info.age)
+            .filter(([key, value]) => value === true)
+            .forEach(el => ageArray.push(el[0]))
+
+        const categoryArray = [];
+        const infoCategory = Object
+            .entries(info.checklist).filter(([key, value]) => value === true)
+            .forEach(el => categoryArray.push(el[0]))
+
+        PartyList.find(
+            {$and: [
+                    {date: {
+                        $gte: new Date(req.body.date1.dateInstance),
+                        $lte: new Date(req.body.date2.dateInstance)
+                    }},
+                    {$and:[
+                            { category: categoryArray },
+                            { age: ageArray}
+                        ]}
+                ]}).lean()
+            .then(data => {
+                console.log(data)
+                res.render('sites/home/home', {
+                    info: data,
+                    follow: true,
+                    unfollow: false,
+                    category: CATEGORY,
+                    age: AGE,
+                })
+            })
+            .catch(error => console.error(error))
 
     })
 

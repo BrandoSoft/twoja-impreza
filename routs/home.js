@@ -33,8 +33,8 @@ homeRouter
             findAndRender(req, res, {
                 category: CATEGORY,
                 age: AGE,
-                data: {},
-                formatData: formatter(req.body),
+                // data: {},
+                // formatData: formatter(req.body),
             });
         } else {
             //NIEZALOGOWANY
@@ -42,8 +42,8 @@ homeRouter
             findAndRender(req, res, {
                 category: CATEGORY,
                 age: AGE,//służy do formatowania checklisty -> wszystkie kategorie są w data/checkboxList.js
-                data: {}, // To jes to co zrobił Artur -> służy chyba do renderowania
-                formatData: formatter(req.body), // To sformatowana dane, które mają zastąpić (chyba) data
+                // data: {}, // To jes to co zrobił Artur -> służy chyba do renderowania
+                // formatData: formatter(req.body), // To sformatowana dane, które mają zastąpić (chyba) data
             });
         }
     })
