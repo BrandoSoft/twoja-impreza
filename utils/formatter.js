@@ -1,17 +1,17 @@
 const { CATEGORY, AGE } = require("../data/checkboxList");
 
 const formatData = (date) => {
-    if (date !== "") {
-        let newDate = date.split("-")
-        const startDate = `${newDate[0]}-${newDate[1]}-${newDate[2]}`.trim();
-        const finishDate = `${newDate[3]}-${newDate[4]}-${newDate[5]}`.trim();
-        newDate = {
-            startDate,
-            finishDate,
+        if (date !== "") {
+            let newDate = date.split("-")
+            const startDate = `${newDate[0]}-${newDate[1]}-${newDate[2]}`.trim();
+            const finishDate = `${newDate[3]}-${newDate[4]}-${newDate[5]}`.trim();
+            newDate = {
+                startDate,
+                finishDate,
+            }
+            return newDate
         }
-        return newDate
-    }
-    return undefined;
+        return undefined;
 }
 
 const formatSearchParameters = (searchParameters) => {

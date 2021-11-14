@@ -113,47 +113,28 @@ eventsRouter
             })
 
     })
-    .post('/get-events', (req, res) => {
-        const info = formatter(req.body)
-        console.log("BEZ FORMATTERA", req.body)
-        console.log("FORMATTER", formatter(req.body))
-        const ageArray = [];
-        const infoAge = Object
-            .entries(info.age)
-            .filter(([key, value]) => value === true)
-            .forEach(el => ageArray.push(el[0]))
-
-        const categoryArray = [];
-        const infoCategory = Object
-            .entries(info.checklist).filter(([key, value]) => value === true)
-            .forEach(el => categoryArray.push(el[0]))
-
-        PartyList.find(
-            {$and: [
-                    {date: {
-                        // $gte: new Date(req.body.date1.dateInstance),
-                        // $lte: new Date(req.body.date2.dateInstance)
-                            $gte: new Date(2019-11-16),
-                            $lte: new Date(2022-11-16),
-                    }},
-                    {$and:[
-                            { category: categoryArray },
-                            { age: ageArray}
-                        ]}
-                ]}).lean()
-            .then(data => {
-                console.log(data)
-                res.render('sites/home/home', {
-                    info: data,
-                    follow: true,
-                    unfollow: false,
-                    category: CATEGORY,
-                    age: AGE,
-                })
-            })
-            .catch(error => console.error(error))
-
-    })
+    // .post('/get-events', (req, res) => {
+    //
+    //
+    //     PartyList.find(
+    //            {$or:[
+    //                         { category: categoryArray },
+    //                         { age: ageArray}
+    //                     ]
+    //             }).lean()
+    //         .then(data => {
+    //             console.log(data)
+    //             res.render('sites/home/home', {
+    //                 info: data,
+    //                 follow: true,
+    //                 unfollow: false,
+    //                 category: CATEGORY,
+    //                 age: AGE,
+    //             })
+    //         })
+    //         .catch(error => console.error(error))
+    //
+    // })
 
     .post('/get-events-by-date', (req, res) => {
         console.log(req.body)

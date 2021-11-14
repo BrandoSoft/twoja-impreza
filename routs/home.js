@@ -3,39 +3,37 @@ const express = require('express');
 const {verifyAccount} = require("../utils/auth-utils");
 const {findAndRender} = require("../data/database");
 const {CATEGORY, AGE} = require("../data/checkboxList");
-const { formatter } = require("../utils/formatter");
+const {formatter} = require("../utils/formatter");
 const homeRouter = express.Router();
 
 
 homeRouter
     .get('/home', (req, res) => {
 
-        if (verifyAccount(req.cookies.yourPartyToken)){
+        if (verifyAccount(req.cookies.yourPartyToken)) {
             //ZALOGOWANY
             findAndRender(req, res, {
                 category: CATEGORY,
                 age: AGE,
-                data: {},
+                data: undefined,
             });
         } else {
             //NIEZALOGOWANY
             findAndRender(req, res, {
                 category: CATEGORY,
                 age: AGE,
-                data: {},
+                data: undefined,
             });
         }
     })
     .post('/home', (req, res) => {
-        console.log("BEZ FORMATTERA", req.body)
-        console.log("FORMATTER", formatter(req.body))
-        if (verifyAccount(req.cookies.yourPartyToken)){
+
+        if (verifyAccount(req.cookies.yourPartyToken)) {
             //ZALOGOWANY
             findAndRender(req, res, {
                 category: CATEGORY,
                 age: AGE,
-                // data: {},
-                // formatData: formatter(req.body),
+                data: formatter(req.body),
             });
         } else {
             //NIEZALOGOWANY
@@ -50,7 +48,7 @@ homeRouter
     })
 
     .get('/', (req, res) => {
-        res.redirect("/home")
+            res.redirect("/home")
         }
     )
 
