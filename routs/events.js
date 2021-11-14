@@ -9,7 +9,6 @@ const {verifyAccount} = require("../utils/auth-utils");
 
 
 const {connectDataBase} = require('../data/database')
-const mongoose = require("mongoose");
 const {formatter} = require("../utils/formatter");
 
 const urlencodedParser = bodyParser.urlencoded({extended: false})

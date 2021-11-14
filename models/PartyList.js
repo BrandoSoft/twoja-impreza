@@ -7,7 +7,7 @@ const partyListSchema = new mongoose.Schema({
     },
     description:{
         type: String,
-        required: true,
+
     },
     date:{
         type: Date,
@@ -15,15 +15,15 @@ const partyListSchema = new mongoose.Schema({
     },
     time:{
         type: String,
-        required: true,
+
     },
     place:{
         type: String,
-        required: true,
+
     },
     organizer:{
         type: String,
-        required: true,
+
     },
     followers: {
         type: [String],
