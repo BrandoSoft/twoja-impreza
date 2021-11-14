@@ -1,49 +1,52 @@
-<form action="/events/add-to-db" method="post" class="form-home">
+<div class="addparty"> //TODO
 
-    <div id="checkbox-list" class="form-home__checboxcontainer" style="display: flex; flex-direction: row">
 
-        <div>
-            <div class="form-group">
-                <label for="name">Nazwa imprezy</label>
-                <input type="text" name="name" id="name">
-            </div>
-            <div class="form-group">
-                <label for="description">Opis Imprezy</label>
-                <textarea name="description" id="description" cols="60" rows="5"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="date">Data</label>
-                <input type="date" name="date" id="date">
-            </div>
-            <div class="form-group">
-                <label for="time">Start Imprezy</label>
-                <input type="time" name="time" id="time">
-            </div>
-            <div class="form-group">
-                <label for="place">Miejsce</label>
-                <input type="text" name="place" id="place">
-            </div>
-            <div class="form-group">
-                <label for="organizer">Organizator</label>
-                <input type="text" name="organizer" id="organizer">
-            </div>
-        </div>
-        <div>
-            <p>Kategorie Wiek:</p>
+    <form action="/events/add-to-db" method="post" class="addparty__form">
+
+
+        <label for="name" class="addparty__label">Nazwa imprezy</label>
+        <input type="text" name="name" id="name" class="addparty__title">
+
+        <label for="description" class="addparty__label">Opis Imprezy</label>
+        <textarea name="description" id="description" class="addparty__description" cols="30" rows="3"></textarea>
+
+
+        <label for="date" class="addparty__label">Data</label>
+        <input type="date" class="addparty__date" name="date" id="date">
+
+
+        <label for="time" class="addparty__label">Start Imprezy</label>
+        <input type="time" class="addparty__time" name="time" id="time">
+
+
+        <label for="place" class="addparty__label">Miejsce</label>
+
+
+        <label for="organizer" class="addparty__label">Organizator</label>
+        <input type="text" class="addparty__organizer" name="organizer" id="organizer">
+
+
+        <p class="form-home__description">Kategorie Wiek:</p>
+        <div class="addparty__checboxcontainer">
             {{#each age}}
-                <div class="form-home__checkbox-category">
-                    <input type="checkbox" class="form-home__checkbox" id="checkbox-{{this}}" name="{{this}}">
-                    <label class="form-home__label" for="checkbox-{{this}}">{{this}}</label>
-                </div>
-            {{/each}}
-            <p>Kategorie Typ:</p>
-            {{#each category}}
-                <div class="form-home__checkbox-category">
+                <div class="addparty__checkbox-category">
                     <input type="checkbox" class="form-home__checkbox" id="checkbox-{{this}}" name="{{this}}">
                     <label class="form-home__label" for="checkbox-{{this}}">{{this}}</label>
                 </div>
             {{/each}}
         </div>
-    </div>
-    <button class="form-home__submit" type="submit">Wyślij</button>
-</form>
+        <p class="form-home__description">Kategorie Typ:</p>
+        <div class="addparty__checboxcontainer">
+            {{#each category}}
+                <div class="addparty__checkbox-category">
+                    <input type="checkbox" class="form-home__checkbox" id="checkbox-{{this}}" name="{{this}}">
+                    <label class="form-home__label" for="checkbox-{{this}}">{{this}}</label>
+                </div>
+            {{/each}}
+        </div>
+
+
+        <button class="form-home__submit" type="submit">Wyślij</button>
+    </form>
+
+</div>

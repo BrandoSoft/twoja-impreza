@@ -116,14 +116,14 @@
 
     &--follow {
       display: flex;
-      border-color: #37FF00;
-      color: #37FF00;
+      border-color: $follow;
+      color: $follow;
     }
 
     &--more-info {
       display: flex;
-      border-color: #67FFE2;
-      color: #67FFE2;
+      border-color: $more-info;
+      color: $more-info;
     }
   }
 
