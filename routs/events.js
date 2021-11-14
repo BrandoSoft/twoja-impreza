@@ -22,13 +22,13 @@ connectDataBase();
 eventsRouter
     .get('/add', (req, res) => {
         if (verifyAccount(req.cookies.yourPartyToken)) {
-            ZALOGOWANY
+            // ZALOGOWANY
             res.render('sites/add/add', {
                 category: CATEGORY,
                 age: AGE,
             })
         } else {
-            NIEZALOGOWANY
+            // NIEZALOGOWANY
             res.render('sites/user-account/register-login-form', {})
         }
     })
