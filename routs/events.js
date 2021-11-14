@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const PartyList = require("../models/PartyList");
 const jwt = require("jsonwebtoken");
 
+
+const {CATEGORY, AGE} = require("../data/checkboxList");
 const {verifyAccount} = require("../utils/auth-utils");
 
 
@@ -20,10 +22,13 @@ eventsRouter
     .get('/add', (req, res) => {
         if (verifyAccount(req.cookies.yourPartyToken)) {
             //ZALOGOWANY
-            res.render('sites/add/add', {})
+            res.render('sites/add/add', {
+                category:CATEGORY,
+                age:AGE,
+            })
         } else {
             //NIEZALOGOWANY
-            res.render('sites/add/add', {})
+            res.render('sites/user-account/register-login-form', {})
         }
     })
 
@@ -39,22 +44,14 @@ eventsRouter
 
     //Do metod poniżej nie dodawałem weryfikacji
     .post('/add-to-db', urlencodedParser, (req, res) => {
-        const Data = new PartyList(req.body)
-        Data.save()
-            .then(() => {
-                res.render('sites/add/added', req.body)
-            })
-            .catch(error => console.log(error))
-    })
 
-    .post('/add-to-db', urlencodedParser, (req, res) => {
-        const Data = new PartyList(req.body)
-        Data.save()
-            .then(() => {
-                res.render('sites/add/added', req.body)
-            })
-            .catch(error => console.log(error))
-    })
+    //     const Data = new PartyList(req.body)
+    //     Data.save()
+    //         .then(() => {
+    //             res.render('sites/add/added', req.body)
+    //         })
+    //         .catch(error => console.log(error))
+    // })
 
     .get('/get-event-id/:id', (req, res) => {
         PartyList.findOne({

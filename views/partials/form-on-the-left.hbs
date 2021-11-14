@@ -2,66 +2,34 @@
     <div id="calendar">
         {{>range-picker-calendar}}
     </div>
-        <label class="form-home__searchlabel" for="search-input">Poszukiwana fraza</label>
-        <input type="text" class="form-home__searchinput" id="search-input" name="searchParameters">
 
-    <div id="age-categories" class="form-home__agecategories">
-        <label class="form-home__agelabel" for="first-age-input">Wiek od:</label>
-        <input class="form-home__ageinput" type="number" id="first-age-input" name="firstAge" min="1" max="99">
-        <label class="form-home__agelabel" for="second-age-input">Wiek do:</label>
-        <input class="form-home__ageinput" type="number" id="second-age-input" name="secondAge" min="1" max="99">
-    </div>
+    <p>Parametry Wyszukiwania</p>
+    <!--        <label class="form-home__searchlabel" for="search-input">Poszukiwana fraza</label>-->
+    <input type="text" class="form-home__searchinput" id="search-input" name="searchParameters"
+           placeholder="Szukaj imprezy">
+
+    <!--    <div id="age-categories" class="form-home__agecategories">-->
+    <!--        <label class="form-home__agelabel" for="first-age-input">Wiek od:</label>-->
+    <!--        <input class="form-home__ageinput" type="number" id="first-age-input" name="firstAge" min="1" max="99">-->
+    <!--        <label class="form-home__agelabel" for="second-age-input">Wiek do:</label>-->
+    <!--        <input class="form-home__ageinput" type="number" id="second-age-input" name="secondAge" min="1" max="99">-->
+    <!--    </div>-->
+
     <div id="checkbox-list" class="form-home__checboxcontainer">
+        <p>Kategorie Wiek:</p>
+        {{#each age}}
+            <div class="form-home__checkbox-category">
+                <input type="checkbox" class="form-home__checkbox" id="checkbox-{{this}}" name="{{this}}">
+                <label class="form-home__label" for="checkbox-{{this}}">{{this}}</label>
+            </div>
+        {{/each}}
+        <p>Kategorie Typ:</p>
         {{#each category}}
             <div class="form-home__checkbox-category">
                 <input type="checkbox" class="form-home__checkbox" id="checkbox-{{this}}" name="{{this}}">
                 <label class="form-home__label" for="checkbox-{{this}}">{{this}}</label>
             </div>
         {{/each}}
-
-
-        <div class="form-home__checkbox-category">
-            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
-            <label class="form-home__label" for="checkbox-a">a</label>
-        </div>
-
-        <div class="form-home__checkbox-category">
-            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
-            <label class="form-home__label" for="checkbox-a">a</label>
-        </div>
-
-        <div class="form-home__checkbox-category">
-            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
-            <label class="form-home__label" for="checkbox-a">a</label>
-        </div>
-
-        <div class="form-home__checkbox-category">
-            <input type="checkbox" class="form-home__checkbox" id="checkbox-aaaaaaa" name="aaaaaaa">
-            <label class="form-home__label" for="checkbox-aaaaaaa">Charytatywnie</label>
-        </div>
-
-        <div class="form-home__checkbox-category">
-            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
-            <label class="form-home__label" for="checkbox-a">a</label>
-        </div>
-
-        <div class="form-home__checkbox-category">
-            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
-            <label class="form-home__label" for="checkbox-a">a</label>
-        </div>
-
-        <div class="form-home__checkbox-category">
-            <input type="checkbox" class="form-home__checkbox" id="checkbox-a" name="a">
-            <label class="form-home__label" for="checkbox-a">a</label>
-        </div>
-
-
-
-
-
-
-
-
     </div>
     <button class="form-home__submit" type="submit">Wyślij</button>
 </form>
