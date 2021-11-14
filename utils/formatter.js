@@ -1,6 +1,6 @@
 const { CATEGORY, AGE } = require("../data/checkboxList");
 const formatData = (date) => {
-    if (date !== "") {
+    if (date !== "" || date !=='undefined') {
         let newDate = date.split("-")
         const startDate = `${newDate[0]}-${newDate[1]}-${newDate[2]}`.trim();
         const finishDate = `${newDate[3]}-${newDate[4]}-${newDate[5]}`.trim();
