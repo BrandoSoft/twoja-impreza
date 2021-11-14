@@ -359,6 +359,7 @@ body {
         padding: 1rem;
         margin: 2rem 1rem 1rem 1rem; } }
   .main-section__content {
+    align-self: flex-start;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -411,12 +412,14 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-self: flex-start;
   flex: 1;
   background-color: #fff;
   padding: .5rem .5rem 0 .5rem;
   max-width: 40rem;
   margin: .2rem;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  border-radius: 10px; }
   @media (max-width: 768px) {
     .party-component {
       font-size: 1.3rem; } }
@@ -425,7 +428,7 @@ body {
       font-size: 1.4rem; } }
   .party-component__main {
     background: #45d9d7;
-    background: linear-gradient(270deg, #45d9d7 0%, #99fef0 100%);
+    background: linear-gradient(270deg, black 0%, #99fef0 100%);
     border-radius: 10px;
     height: 100%; }
   .party-component__overview {
