@@ -75,9 +75,7 @@ function findAndRender(req, res, options) {
                     {
                         category: categoryArray
                     },
-                    {
-                    age: ageArray
-                    }
+
             ]
         }
     ).lean().sort({date: 1})
