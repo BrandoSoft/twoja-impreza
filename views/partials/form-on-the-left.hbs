@@ -1,12 +1,7 @@
-<div id="calendar">
-    {{>range-picker-calendar}}
-</div>
-
-
-
-
-
 <form action="/events/get-events" method="post" class="form-home">
+    <div id="calendar">
+        {{>range-picker-calendar}}
+    </div>
 
     <div class="form-home__legend-container">
         <div class="form-home__legend">
@@ -27,9 +22,9 @@
     <p class="form-home__description">Parametry Wyszukiwania</p>
     <!--        <label class="form-home__searchlabel" for="search-input">Poszukiwana fraza</label>-->
     <div class="form-home__searchbox">
-    <input type="text" class="form-home__searchinput" id="search-input" name="searchParameters"
-           placeholder="Szukaj imprezy">
-    <i class="fas fa-search fa-lg"></i>
+        <input type="text" class="form-home__searchinput" id="search-input" name="searchParameters"
+               placeholder="Szukaj imprezy">
+        <i class="fas fa-search fa-lg"></i>
     </div>
 
     <p class="form-home__description">Kategorie Wiek:</p>

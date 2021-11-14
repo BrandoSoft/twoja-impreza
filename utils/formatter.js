@@ -1,7 +1,8 @@
 const { CATEGORY, AGE } = require("../data/checkboxList");
+
 const formatData = (date) => {
-    if (date !== "" || date !=='undefined') {
-        let newDate = date.date.split("-")
+    if (date !== "") {
+        let newDate = date.split("-")
         const startDate = `${newDate[0]}-${newDate[1]}-${newDate[2]}`.trim();
         const finishDate = `${newDate[3]}-${newDate[4]}-${newDate[5]}`.trim();
         newDate = {
@@ -18,24 +19,6 @@ const formatSearchParameters = (searchParameters) => {
         return undefined;
     } else {
         return searchParameters.toUpperCase();
-    }
-}
-
-const formatAge = (firstAge, secondAge) => {
-    if (firstAge === ""){
-        firstAge = 1;
-    }
-    if (secondAge === ""){
-        secondAge = 99;
-    }
-    if (firstAge <= secondAge) {
-        const minAge = Number(firstAge);
-        const maxAge = Number(secondAge);
-        return { minAge, maxAge };
-    } else {
-        const minAge = Number(secondAge);
-        const maxAge = Number(firstAge);
-        return { minAge, maxAge };
     }
 }
 
@@ -64,8 +47,8 @@ const ageChecklist = (data) => {
 
 const formatter = (data) => {
     const newData = {};
-    // newData.date = formatData(data.date);
-    // newData.searchParameters = formatSearchParameters(data.searchParameters);
+    newData.date = formatData(data.date);
+    newData.searchParameters = formatSearchParameters(data.searchParameters);
     newData.age = ageChecklist(data);
     newData.checklist = formatChecklist(data);
     return newData;

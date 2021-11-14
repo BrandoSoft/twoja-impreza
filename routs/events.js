@@ -114,8 +114,9 @@ eventsRouter
 
     })
     .post('/get-events', (req, res) => {
-        console.log(req.body)
         const info = formatter(req.body)
+        console.log("BEZ FORMATTERA", req.body)
+        console.log("FORMATTER", formatter(req.body))
         const ageArray = [];
         const infoAge = Object
             .entries(info.age)
