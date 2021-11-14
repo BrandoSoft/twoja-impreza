@@ -44,6 +44,7 @@ eventsRouter
 
     //Do metod poniżej nie dodawałem weryfikacji
     .post('/add-to-db', urlencodedParser, (req, res) => {
+
         const {name, dzieci} = req.body;
         console.log()
         console.log(req.body)
@@ -55,6 +56,7 @@ eventsRouter
     //         .catch(error => console.log(error))
         res.render('sites/add/added', req.body)
     })
+
 
     .get('/get-event-id/:id', (req, res) => {
         PartyList.findOne({
