@@ -3,7 +3,7 @@ const express = require('express');
 const {verifyAccount} = require("../utils/auth-utils");
 const {findAndRender} = require("../data/database");
 const {CATEGORY, AGE} = require("../data/checkboxList");
-const {formatter} = require("../utils/formatter");
+const { formatter } = require("../utils/formatter");
 const homeRouter = express.Router();
 
 
@@ -27,7 +27,8 @@ homeRouter
         }
     })
     .post('/home', (req, res) => {
-        console.log(req.body)
+        console.log("BEZ FORMATTERA", req.body)
+        console.log("FORMATTER", formatter(req.body))
         if (verifyAccount(req.cookies.yourPartyToken)){
             //ZALOGOWANY
             findAndRender(req, res, {
