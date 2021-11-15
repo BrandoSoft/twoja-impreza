@@ -19,7 +19,6 @@
   transform: translate(-50%, -50%);
   border-right: 2px solid #fe9400;
   padding-right: 1rem;
-  opacity: 0.6;
   color: #fe9400; }
 
 .form-home {
@@ -34,8 +33,6 @@
     display: block;
     padding: 1rem;
     color: #E83D25; }
-    .form-home__searchinput::-webkit-input-placeholder {
-      color: #E83D25; }
     .form-home__searchinput:focus, .form-home__searchinput:active {
       border: 2px solid #fe9400;
       outline: none; }
@@ -199,8 +196,6 @@
     display: block;
     padding: 1rem 1rem 1rem 5rem;
     position: relative; }
-    .register__login::-webkit-input-placeholder, .register__email::-webkit-input-placeholder, .register__password::-webkit-input-placeholder, .login__login::-webkit-input-placeholder, .login__email::-webkit-input-placeholder, .login__password::-webkit-input-placeholder {
-      color: #E83D25; }
     .register__login:focus, .register__login:active, .register__email:focus, .register__email:active, .register__password:focus, .register__password:active, .login__login:focus, .login__login:active, .login__email:focus, .login__email:active, .login__password:focus, .login__password:active {
       border: 2px solid #fe9400;
       outline: none; }

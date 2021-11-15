@@ -27,9 +27,6 @@
     padding: 1rem 1rem 1rem 5rem;
     position: relative;
 
-    &::-webkit-input-placeholder {
-      color: $color-info;
-    }
 
     &:focus,
     &:active {
