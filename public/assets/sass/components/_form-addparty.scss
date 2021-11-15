@@ -7,7 +7,7 @@
   background-color: white;
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 5px 4px 50px 12px rgba( 0 , 0 , 0 , 0.9 );
+  box-shadow: $custom-box-shadow;
 
   &__title,
   &__description,
