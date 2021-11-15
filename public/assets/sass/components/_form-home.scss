@@ -2,6 +2,7 @@
   font-size: 1.3rem;
   padding: 1rem;
 
+
   label {
     color: $color-info;
     font-weight: bold;
@@ -14,10 +15,7 @@
     padding: 1rem;
     color: $color-info;
 
-    &::-webkit-input-placeholder
-    {
-     color: $color-info;
-    }
+
 
     &:focus,
     &:active {

@@ -10,6 +10,17 @@
   top: 50%;
   transform: translate(-50%, -50%); }
 
+.fa-custom {
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  z-index: 2;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+  border-right: 2px solid #fe9400;
+  padding-right: 1rem;
+  color: #fe9400; }
+
 .form-home {
   font-size: 1.3rem;
   padding: 1rem; }
@@ -22,8 +33,6 @@
     display: block;
     padding: 1rem;
     color: #E83D25; }
-    .form-home__searchinput::-webkit-input-placeholder {
-      color: #E83D25; }
     .form-home__searchinput:focus, .form-home__searchinput:active {
       border: 2px solid #fe9400;
       outline: none; }
@@ -167,6 +176,42 @@
     font-size: 1.2rem;
     flex: 0 0 33.3%;
     margin: .5rem 0; }
+
+.register, .login {
+  margin: 5rem 2.5rem;
+  padding: 2rem;
+  background-color: white;
+  flex: 0 0 40%;
+  font-size: 1.3rem;
+  box-shadow: 5px 4px 50px 12px rgba(0, 0, 0, 0.9);
+  border-radius: 20px; }
+  .register button, .login button {
+    margin-top: 2.6rem; }
+  .register__label, .login__label {
+    display: inline-block;
+    margin: 1rem 0 .3rem 0;
+    visibility: hidden; }
+  .register__login, .register__email, .register__password, .login__login, .login__email, .login__password {
+    width: 100%;
+    display: block;
+    padding: 1rem 1rem 1rem 5rem;
+    position: relative; }
+    .register__login:focus, .register__login:active, .register__email:focus, .register__email:active, .register__password:focus, .register__password:active, .login__login:focus, .login__login:active, .login__email:focus, .login__email:active, .login__password:focus, .login__password:active {
+      border: 2px solid #fe9400;
+      outline: none; }
+  .register__info, .login__info {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold; }
+  .register__group, .login__group {
+    position: relative; }
+
+.login {
+  align-self: center; }
+
+@media (max-width: 992px) {
+  .login {
+    align-self: stretch; } }
 
 *,
 *::after,

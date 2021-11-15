@@ -12,6 +12,19 @@
 {
   position: absolute;
   right:3%;
-  top:50%;
+  top:50% ;
   transform: translate(-50%, -50%);
+}
+
+.fa-custom
+{
+  position: absolute;
+  left: 3rem;
+  top:50%;
+  z-index: 2;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+  border-right: 2px solid $primary-color;
+  padding-right: 1rem;
+  color: $primary-color;
 }
