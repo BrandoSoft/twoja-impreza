@@ -18,6 +18,7 @@ function connectDataBase() {
 
 function findAndRender(req, res, options) {
     let {category, data, age} = options;
+    const str = 'asdasds'
 
 
     if (data === undefined) {
@@ -46,7 +47,7 @@ function findAndRender(req, res, options) {
     }
 
 
-    console.log('cala data >>>', data, 'koniec')
+    // console.log('cala data >>>', data, 'koniec')
     // console.log('age >>>', data.age)
     // console.log('category >>>', data.checklist)
 
@@ -65,18 +66,10 @@ function findAndRender(req, res, options) {
 
     console.log(data.date, categoryArray)
     PartyList.find({
-            $and: [
-                    {
-                    date: {
-                        $gte: data.date.startDate,
-                        $lte: data.date.finishDate,
-                    }
-                    },
-                    {
-                        category: categoryArray
-                    },
-
-            ]
+            date: {
+                $gte: data.date.startDate,
+                $lte: data.date.finishDate,
+            }
         }
     ).lean().sort({date: 1})
         .then(data => {

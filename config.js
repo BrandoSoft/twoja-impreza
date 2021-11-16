@@ -13,7 +13,7 @@ function getEnv(data){
 }
 
 const config = {
-    port: Number(getEnv("PORT")),
+    port:  process.env.PORT || Number(getEnv("PORT")),
     database_name: getEnv("DBNAME"),
     database_pass: getEnv("DBPASS"),
     access_token: getEnv("ACCESS_TOKEN"),
