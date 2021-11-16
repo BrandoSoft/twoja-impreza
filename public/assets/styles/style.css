@@ -522,7 +522,7 @@ body {
   justify-content: center;
   flex-direction: column;
   align-self: flex-start;
-  flex: 1;
+  flex: 0 0 31%;
   background-color: #fff;
   padding: .5rem .5rem 0 .5rem;
   max-width: 40rem;
