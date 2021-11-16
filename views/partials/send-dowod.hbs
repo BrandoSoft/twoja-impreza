@@ -1,0 +1,44 @@
+<div class="passport">
+
+    <p class="passport__info">
+        !!! UWAGA !!! Aby Dodawać ogłoszenia Musimy Zweryfikować Twoje Konto
+    </p>
+
+    <div class="passport__icon">
+        <div class="passport__icon__topleft"></div>
+        <div class="passport__icon__topright"></div>
+        <div class="passport__icon__bottomleft">
+            <i class="fas fa-user fa-passport-user"></i>
+        </div>
+        <div class="passport__icon__bottomright">
+            <i class="fas fa-bars fa-passport-id"></i>
+        </div>
+    </div>
+
+    <p class="passport__prompt">Prześlij zdjęcie sowjego dowodu</p>
+
+
+<!--    Formualrz-->
+    <form action="#" method="post" class="passport__form">
+
+        <div class="party-component__box-button">
+
+
+            <label for="file-upload" class="party-component__button party-component__button--more-info">
+                <i class="far fa-id-card"></i> Przód dowodu
+            </label>
+            <input id="file-upload" type="file" name="file-upload" style="display: none"/>
+
+            <label for="file-upload2" class="party-component__button party-component__button--more-info">
+                <i class="far fa-id-card"></i> Tył dowodu
+            </label>
+            <input id="file-upload2" type="file" name="file-upload2" style="display: none"/>
+
+        </div>
+
+        <button type="submit" style="display: inline-block" class="party-component__button party-component__button--follow">
+            <i class="fas fa-paper-plane"></i> Wyślij
+        </button>
+
+    </form>
+</div>

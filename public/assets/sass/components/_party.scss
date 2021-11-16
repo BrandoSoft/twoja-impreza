@@ -109,6 +109,7 @@
     padding: .5rem 2rem;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     @media(max-width: $tablet)
     {
@@ -117,13 +118,11 @@
 
 
     &--follow {
-      display: flex;
       border-color: $follow;
       color: $follow;
     }
 
     &--more-info {
-      display: flex;
       border-color: $more-info;
       color: $more-info;
     }
