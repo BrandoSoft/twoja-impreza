@@ -30,6 +30,7 @@ eventsRouter
             // NIEZALOGOWANY
             res.render('sites/user-account/register-login-form', {})
         }
+      // res.render("sites/user-party/show-dowod");  Widok z Dododem
     })
 
     .get('/added', (req, res) => {

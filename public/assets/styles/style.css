@@ -1,7 +1,7 @@
-.fa-star {
-  margin-right: 1rem; }
-
-.fa-info-circle {
+.fa-star,
+.fa-info-circle,
+.fa-id-card,
+.fa-paper-plane {
   margin-right: 1rem; }
 
 .fa-search {
@@ -20,6 +20,22 @@
   border-right: 2px solid #fe9400;
   padding-right: 1rem;
   color: #fe9400; }
+
+.fa-passport-user {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  color: red; }
+
+.fa-passport-id {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8rem;
+  color: #252c3b; }
 
 .form-home {
   font-size: 1.3rem;
@@ -212,6 +228,54 @@
 @media (max-width: 992px) {
   .login {
     align-self: stretch; } }
+
+.passport {
+  align-self: center;
+  text-align: center;
+  font-size: 1.3rem;
+  flex-basis: 50%;
+  margin: 5rem auto;
+  background-color: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 5px 4px 50px 12px rgba(0, 0, 0, 0.9); }
+  .passport__icon {
+    margin: 0 auto;
+    width: 25rem;
+    height: 15rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; }
+    .passport__icon__topleft {
+      border-top-left-radius: 20px;
+      height: 4rem;
+      flex: 0 0 50%;
+      background-color: yellow; }
+    .passport__icon__topright {
+      border-top-right-radius: 20px;
+      height: 4rem;
+      flex: 0 0 50%;
+      background-color: #fe9400; }
+    .passport__icon__bottomleft {
+      position: relative;
+      border-bottom-left-radius: 20px;
+      height: 11rem;
+      flex: 0 0 50%;
+      background-color: #dedbdb; }
+    .passport__icon__bottomright {
+      position: relative;
+      border-bottom-right-radius: 20px;
+      height: 11rem;
+      flex: 0 0 50%;
+      background-color: gray; }
+  .passport__info {
+    text-transform: uppercase;
+    color: red;
+    font-size: 2.2rem;
+    margin: 2rem 0; }
+  .passport__prompt {
+    margin: 2rem 0;
+    font-size: 2.2rem; }
 
 *,
 *::after,
@@ -521,16 +585,15 @@ body {
     margin: 0 .5rem;
     padding: .5rem 2rem;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    cursor: pointer; }
     @media (max-width: 992px) {
       .party-component__button {
         font-size: 1.4rem; } }
     .party-component__button--follow {
-      display: flex;
       border-color: #37FF00;
       color: #37FF00; }
     .party-component__button--more-info {
-      display: flex;
       border-color: #67FFE2;
       color: #67FFE2; }
 
