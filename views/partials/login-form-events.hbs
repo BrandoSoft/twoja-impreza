@@ -1,22 +1,21 @@
-<div class="register-login-panel">
+<div class="login">
+    <p class="login__info">Zaloguj się</p>
+    <form method="post" action="/user/event/login" class="login__form">
+
+        <label for="login" class="login__label"> Podaj nazwę użytkownika/login</label>
+        <div class="login__group">
+            <i class="fas fa-user fa-custom"></i>
+            <input placeholder="Login" type="text" name="login" class="login__login">
+        </div>
 
 
-    <div>
-        <form method="post" action="/user/events/login">
-            <p>
-                <label for="login"> Podaj nazwę użytkownika/login</label>
-            </p>
-            <p>
-                <input type="text" name="login">
-            </p>
-            <p>
-                <label for="password"> Podaj Hasło</label>
-            </p>
-            <p>
-                <input type="password" name="password">
-            </p>
+        <label for="password" class="login__label"> Podaj Hasło</label>
+        <div class="login__group">
+            <i class="fas fa-key fa-custom"></i>
+            <input placeholder="Password" type="password" name="password" class="login__password">
+        </div>
 
-            <button type="submit">Zaloguj</button>
-        </form>
-    </div>
+
+        <button class="form-home__submit" type="submit">Zaloguj</button>
+    </form>
 </div>
