@@ -58,7 +58,7 @@ userRouter
 
 
             PartyList.find(
-                {followers: jwt.decode(req.cookies.yourPartyToken).idHash }
+                {followers: jwt.decode(req.cookies.yourPartyToken).idHash}
             ).lean()
                 .sort({date: 1})
                 .then(data => {
@@ -69,18 +69,15 @@ userRouter
                     })
                 })
                 .catch(error => console.error(error))
-            }
-else
-{
-    //NIEZALOGOWANY
-    res.render('sites/user-party/event-login', {})
-}
+        } else {
+            //NIEZALOGOWANY
+            res.render('sites/user-party/event-login', {})
+        }
 
-})
-.
-post('/login', (req, res) => {
-    checkUserInDB(req, res, '/user');
-})
+    })
+    .post('/login', (req, res) => {
+        checkUserInDB(req, res, '/user');
+    })
 
     .post('/events/login', (req, res) => {
 
