@@ -21,6 +21,9 @@ const RegisterUserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    isAdmin: {
+        type: Boolean,
+    }
 
 });
 
